@@ -1,6 +1,6 @@
 <template>
   <div @click="clickHandle">
-
+    <a href="/pages/lianxi/main" class="counter">去登录</a>
     <button open-type="getUserInfo" @getuserinfo="getUserInfo"> 获取头像昵称 </button>
 
     <div class="userinfo" @click="bindViewTap">
