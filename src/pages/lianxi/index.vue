@@ -1,17 +1,22 @@
 <template>
-  <div>
-    <div class="box">
-      <input class="input"/> 用户名<br/>
-      <input class="input"/> 密码<br/>
-    </div>
-    <button>登陆</button>
-
-
+  <div @click="dddd">
+    {{ message }}
   </div>
+
 
 </template>
 
 <script>
+  export default {
+    data: {
+      message: 'Hello Vue!'
+    },
+    methods: {
+      dddd(){
+        this.message = 'asdfsadfsdaf'
+      }
+    }
+  }
 </script>
 
 <style scoped>
