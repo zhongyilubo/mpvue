@@ -68,6 +68,9 @@ export default {
       console.log('clickHandle:', ev)
       // throw {message: 'custom test'}
     },
+      tologin(){
+
+      },
     getUserInfo: function(e) {
         let app = getApp()
 
