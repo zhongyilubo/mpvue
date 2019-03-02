@@ -2,6 +2,7 @@
   <div @click="dddd">
     {{ message }}
   </div>
+  <p>123456</p>
 
 
 </template>
@@ -22,4 +23,6 @@
 <style scoped>
   .box{ width: 100%;}
   .input{ margin: 0 auto; width: 200px; height: 30px; border: 1px saddlebrown solid }
+
+
 </style>
