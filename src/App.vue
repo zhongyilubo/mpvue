@@ -25,11 +25,19 @@ export default {
     }
 
 
+    var _this = this;
       // 登录
       wx.login({
           success: res => {
               // 发送 res.code 到后台换取 openId, sessionKey, unionId
-              console.log(res);
+              _this.$net.post({
+                  url: 'login',
+                  data: {
+                      'code': res.code
+                  }
+              }).then(res => {
+                  mpvue.setStorageSync('token', res.access_token)
+              })
           }
       })
       // 获取用户信息
