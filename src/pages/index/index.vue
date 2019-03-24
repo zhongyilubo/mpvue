@@ -36,10 +36,7 @@ export default {
     return {
       motto: 'Hello miniprograme',
       getusershow:true,
-      userInfo: {
-        nickName: mpvue.getStorageSync('userInfo')['nickName'],
-        avatarUrl: mpvue.getStorageSync('userInfo')['avatarUrl']
-      }
+      userInfo: {}
     }
   },
   components: {
@@ -59,6 +56,8 @@ export default {
                           //用户已经授权过
                           console.log('用户已经授权过')
                           _this.getusershow = false;
+                          _this.userInfo = res.userInfo;
+                          mpvue.setStorageSync('userInfo', res.userInfo)
                       }
                   })
               }else{
@@ -85,6 +84,8 @@ export default {
               console.log('用户按了允许授权按钮')
               console.log(e.mp.detail.userInfo);
               this.getusershow = false;
+              this.userInfo = e.mp.detail.userInfo;
+              mpvue.setStorageSync('userInfo', e.mp.detail.userInfo)
           } else {
               //用户按了拒绝按钮
               console.log('用户按了拒绝按钮')
