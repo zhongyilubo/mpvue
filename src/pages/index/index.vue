@@ -49,6 +49,7 @@ export default {
       let app = getApp()
   },
   mounted(){
+      var _this = this;
       wx.getSetting({
           success: function(res){
               if (res.authSetting['scope.userInfo']) {
@@ -57,6 +58,7 @@ export default {
                           console.log(res.userInfo)
                           //用户已经授权过
                           console.log('用户已经授权过')
+                          _this.getusershow = false;
                       }
                   })
               }else{
@@ -82,6 +84,7 @@ export default {
               //用户按了允许授权按钮
               console.log('用户按了允许授权按钮')
               console.log(e.mp.detail.userInfo);
+              this.getusershow = false;
           } else {
               //用户按了拒绝按钮
               console.log('用户按了拒绝按钮')
