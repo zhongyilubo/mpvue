@@ -2,7 +2,7 @@
   <div @click="clickHandle">
     <a href="/pages/lianxi/main" class="counter">去登录d</a>
 
-      <button class="authlogin" open-type="getUserInfo" @getuserinfo="bindGetUserInfo" v-if="getuserhidden"> 获取头像昵称 </button>
+      <button class="authlogin" open-type="getUserInfo" @getuserinfo="bindGetUserInfo" v-if="getusershow"> 获取头像昵称 </button>
 
     <div class="userinfo" @click="bindViewTap">
       <img class="userinfo-avatar" v-if="userInfo.avatarUrl" :src="userInfo.avatarUrl" background-size="cover" />
@@ -35,7 +35,7 @@ export default {
   data () {
     return {
       motto: 'Hello miniprograme',
-      getuserhidden:true,
+      getusershow:true,
       userInfo: {
         nickName: mpvue.getStorageSync('userInfo')['nickName'],
         avatarUrl: mpvue.getStorageSync('userInfo')['avatarUrl']
