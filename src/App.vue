@@ -1,6 +1,6 @@
 <script>
 export default {
-  created () {
+    created () {
     // 调用API从本地缓存中获取数据
     /*
      * 平台 api 差异的处理方式:  api 方法统一挂载到 mpvue 名称空间, 平台判断通过 mpvuePlatform 特征字符串
@@ -10,24 +10,9 @@ export default {
      * 支付宝(蚂蚁)：mpvue === my, mpvuePlatform === 'my'
      */
 
-    let logs
-    if (mpvuePlatform === 'my') {
-      logs = mpvue.getStorageSync({key: 'logs'}).data || []
-      logs.unshift(Date.now())
-      mpvue.setStorageSync({
-        key: 'logs',
-        data: logs
-      })
-    } else {
-      logs = mpvue.getStorageSync('logs') || []
-      logs.unshift(Date.now())
-      mpvue.setStorageSync('logs', logs)
-    }
-
-
-    var _this = this;
-      // 登录
-      wx.login({
+        var _this = this;
+          // 登录
+        wx.login({
           success: res => {
               // 发送 res.code 到后台换取 openId, sessionKey, unionId
               _this.$net.post({
@@ -39,34 +24,9 @@ export default {
                   mpvue.setStorageSync('token', res.access_token)
               })
           }
-      })
-      // 获取用户信息
-      wx.getSetting({
-          success: res => {
-              if (res.authSetting['scope.userInfo']) {
-                  // 已经授权，可以直接调用 getUserInfo 获取头像昵称，不会弹框
-                  wx.getUserInfo({
-                      success: res => {
-                          // 可以将 res 发送给后台解码出 unionId
-                          mpvue.setStorageSync('userInfo', res.userInfo);
-                          console.log(res);
+        })
+    },
 
-                          // 由于 getUserInfo 是网络请求，可能会在 Page.onLoad 之后才返回
-                          // 所以此处加入 callback 以防止这种情况
-                          if (this.userInfoReadyCallback) {
-                              this.userInfoReadyCallback(res)
-                          }
-                      }
-                  })
-              }
-          }
-      })
-
-
-  },
-  log () {
-    console.log(`log at:${Date.now()}`)
-  },
     globalData: {
         userInfo: null
     }
