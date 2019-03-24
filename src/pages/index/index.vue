@@ -1,8 +1,8 @@
 <template>
   <div @click="clickHandle">
-    <a href="/pages/lianxi/main" class="counter">去登录</a>
+    <a href="/pages/lianxi/main" class="counter">去登录d</a>
     <button open-type="getUserInfo" @getuserinfo="getUserInfo"> 获取头像昵称 </button>
-
+    <div @click="sendrequest">发送请求</div>
     <div class="userinfo" @click="bindViewTap">
       <img class="userinfo-avatar" v-if="userInfo.avatarUrl" :src="userInfo.avatarUrl" background-size="cover" />
       <img class="userinfo-avatar" v-if="!userInfo.avatarUrl" src="/static/images/user.png" background-size="cover" />
@@ -80,6 +80,16 @@ export default {
           //     userInfo: e.detail.userInfo,
           //     hasUserInfo: true
           // })
+      },
+      sendrequest(){
+          this.$net.post({
+              url: 'me',
+              data: {
+                  'categoryType': 'SaleGoodsType@sim'
+              }
+          }).then(res => {
+              // mpvue.setStorageSync('token', res.access_token)
+          })
       }
   },
 

@@ -1,8 +1,11 @@
 <template>
-  <div @click="dddd">
-    {{ message }}
+  <div>
+    <div @click="dddd">
+      {{ message }}
+    </div>
+    <p>123456</p>
   </div>
-  <p>123456</p>
+
 
 
 </template>
