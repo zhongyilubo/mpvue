@@ -1,6 +1,6 @@
 const host = 'http://api.qq.im/'
 
-function request (url, method, data) {
+function request (url, method, data = {},sign = true) {
     wx.showLoading({
         title: '加载中' // 数据请求前loading
     })
@@ -14,12 +14,18 @@ function request (url, method, data) {
                 'Authorization': 'Bearer '+ mpvue.getStorageSync("token") //读取信息
             },
             success: function (res) {
-                wx.hideLoading()
+                if(res.statusCode == 401 && sign){
+                    return request ('refresh', 'POST', {},false).then(res => {
+                        mpvue.setStorageSync('token', res.access_token)
+                        request (url, method, data,false).then(res => {
+                            resolve(res.data)
+                        });
+                    });
+                }
                 resolve(res.data)
             },
             fail: function (res) {
-                wx.hideLoading()
-                // reject(false)
+                reject(res)
             },
             complete: function () {
                 wx.hideLoading()

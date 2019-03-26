@@ -1,5 +1,5 @@
 <template>
-  <div @click="clickHandle">
+  <div>
     <a href="/pages/lianxi/main" class="counter">去登录d</a>
 
       <button class="authlogin" open-type="getUserInfo" @getuserinfo="bindGetUserInfo" v-if="getusershow"> 获取头像昵称 </button>
@@ -12,6 +12,8 @@
         <card :text="userInfo.nickName"></card>
       </div>
     </div>
+
+    <div @click="getme">获取信息</div>
 
     <div class="usermotto">
       <div class="user-motto">
@@ -75,8 +77,13 @@ export default {
           mpvue.navigateTo({ url })
         }
       },
-      clickHandle (ev) {
-        console.log('clickHandle:', ev)
+      getme(){
+          this.$net.post({
+              url: 'me',
+              data: {}
+          }).then(res => {
+              console.log('back');
+          })
       },
       bindGetUserInfo(e) {
           if (e.mp.detail.rawData){
