@@ -22,6 +22,7 @@ export default {
                   }
               }).then(res => {
                   mpvue.setStorageSync('token', res.access_token)
+                  mpvue.setStorageSync('openid', res.openid)
               })
           }
         })

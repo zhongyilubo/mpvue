@@ -16,12 +16,14 @@ function request (url, method, data = {},sign = true) {
             success: function (res) {
                 if(res.statusCode == 401 && sign){
                     return request ('refresh', 'POST', {},false).then(res => {
-                        mpvue.setStorageSync('token', res.access_token)
-                        request (url, method, data,false).then(res => {
+                        res.access_token && (mpvue.setStorageSync('token', res.access_token) || 1) && request (url, method, data,false).then(res => {
                             resolve(res.data)
+                        }).catch((res) => {
+                            reject(res)
                         });
                     });
                 }
+                //判断没有权限做对应的处理
                 resolve(res.data)
             },
             fail: function (res) {
