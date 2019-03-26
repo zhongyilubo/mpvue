@@ -20,7 +20,7 @@ function request (url, method, data = {},sign = true) {
                             resolve(res.data)
                         }).catch((res) => {
                             reject(res)
-                        });
+                        }) || tologin();
                     });
                 }
                 //判断没有权限做对应的处理
@@ -34,6 +34,9 @@ function request (url, method, data = {},sign = true) {
             }
         })
     })
+}
+function tologin() {
+    
 }
 
 function get (obj) {
