@@ -1,6 +1,6 @@
 <template>
   <div>
-    <a href="/pages/lianxi/main" class="counter">去登录d</a>
+    <a href="/pages/lianxi/main" class="counter">去首页</a>
 
       <button class="authlogin" open-type="getUserInfo" @getuserinfo="bindGetUserInfo" v-if="getusershow"> 获取头像昵称 </button>
 

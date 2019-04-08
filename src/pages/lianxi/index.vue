@@ -1,11 +1,71 @@
 <template>
-  <div>
-    <div @click="dddd">
-      {{ message }}
+  <div class="myContainer">
+    <!-- 搜索 -->
+    <div>
+      <input class="inp-search" type="text">
     </div>
-    <p>123456</p>
+    <!-- banner -->
+    <div class="banner"></div>
+    <!-- 热门推荐 -->
+    <h1 class="myTitle">热门推荐</h1>
+
+    <ul class="zt-box">
+      <li>
+        <img src="" alt="">
+        <p>中医教你如何正确的拔罐子拔罐子拔罐子</p>
+        <dl class="zt-money">
+          <dt class="red">￥:<span>52.00</span></dt>
+          <dd class="gray">李时珍</dd>
+        </dl>
+      </li>
+
+      <li>
+        <span><img src="wx/static/images/class-img1.png" alt=""></span>
+        <p>中医教你如何正确的拔罐子拔罐子拔罐子</p>
+        <dl class="zt-money">
+          <dt class="red">￥:<span>52.00</span></dt>
+          <dd class="gray">李时珍</dd>
+        </dl>
+      </li>
+    </ul>
+
+    <!-- 最新视频 -->
+    <h1 class="myTitle">最新视频</h1>
+    <ul class="zt-box">
+      <li>
+        <span><img src="" alt=""></span>
+      </li>
+
+      <li>
+          <p>著名中医教你如何正确的拔罐子</p>
+        <dl class="zt-money gray">
+          <dt>李时珍</dt>
+          <dd><span>256</span>次</dd>
+        </dl>
+        <dl class="zt-money red">
+          <dt>￥:<span>52.00</span></dt>
+          <dd>系列课</dd>
+        </dl>
+      </li>
+    </ul>
+
+
   </div>
 
+  <ul>
+    <li>
+      <img src="" alt="">首页
+    </li>
+    <li>
+      <img src="" alt="">分类
+    </li>
+    <li>
+      <img src="" alt="">消息
+    </li>
+    <li>
+      <img src="" alt="">我的
+    </li>
+  </ul>
 
 
 </template>
@@ -24,8 +84,55 @@
 </script>
 
 <style scoped>
-  .box{ width: 100%;}
-  .input{ margin: 0 auto; width: 200px; height: 30px; border: 1px saddlebrown solid }
+
+  /* 通用 */
+  h1{ font-size: 42rpx; color: #333;}
+  p{ font-size: 30rpx; color: #000;}
+  .red{ color:#d11208; }
+  .gray{ color:#666;}
+
+      /* 钱 名字 */
+  .zt-money{ overflow: hidden; font-size: 26rpx; margin-top: 15rpx;}
+  .zt-money dt{ float: left}
+  .zt-money dd{ float: right}
+
+  .myContainer{ width: 92%; margin:0 4%;}
+  /*--------------------------------------------*/
+  .inp-search{
+    width: 100%;
+    height: 55rpx;
+    border: 1px solid #8781a6;
+    display: inline-block;
+    box-sizing: border-box;
+    text-indent: 5px;
+    border-radius: 8rpx;
+    margin: 13rpx 0 15rpx;
+  }
+  .banner{
+    width: 100%;
+    height: 350rpx;
+    background:blue;
+  }
+  .myTitle{
+    margin: 25rpx 0;
+  }
+  .zt-box{
+    overflow: hidden;
+  }
+  .zt-box li{ margin-bottom: 15px;}
+  .zt-box li:nth-child(2n-1){
+     float: left;
+     width: calc(50% - 8rpx);
+     margin-right: 8rpx;
+  }
+  .zt-box li:nth-child(2n){
+    float: left;
+    width: calc(50% - 8rpx);
+    margin-left: 8rpx;
+  }
+
+
+
 
 
 </style>
