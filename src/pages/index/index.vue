@@ -1,8 +1,9 @@
 <template>
   <div>
     <a href="/pages/lianxi/main" class="counter">去首页</a>
+    <a href="/pages/LatestVideo/main" class="counter">去最新视频</a>
 
-      <button class="authlogin" open-type="getUserInfo" @getuserinfo="bindGetUserInfo" v-if="getusershow"> 获取头像昵称 </button>
+    <button class="authlogin" open-type="getUserInfo" @getuserinfo="bindGetUserInfo" v-if="getusershow"> 获取头像昵称 </button>
 
     <div class="userinfo" @click="bindViewTap">
       <img class="userinfo-avatar" v-if="userInfo.avatarUrl" :src="userInfo.avatarUrl" background-size="cover" />

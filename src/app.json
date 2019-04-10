@@ -3,7 +3,8 @@
     "pages/index/main",
     "pages/lianxi/main",
     "pages/logs/main",
-    "pages/counter/main"
+    "pages/counter/main",
+    "pages/LatestVideo/main"
   ],
   "window": {
     "backgroundTextStyle": "light",
