@@ -4,7 +4,8 @@
     "pages/lianxi/main",
     "pages/logs/main",
     "pages/counter/main",
-    "pages/LatestVideo/main"
+    "pages/LatestVideo/main",
+    "pages/comment/main"
   ],
   "window": {
     "backgroundTextStyle": "light",
