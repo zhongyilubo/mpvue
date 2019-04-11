@@ -6,6 +6,7 @@
     <input type="text">
     <h1 class="myTitle">您要反应的问题</h1>
     <textarea name="" id="" cols="30" rows="10"></textarea>
+    <div class="submitBut">提交</div>
   </div>
 </template>
 
@@ -114,7 +115,12 @@
     border:1px solid #dedede;
   }
   .myContainer2 .submitBut{
-    
+      width: 100%;
+      height: 66rpx;
+      text-align: center;
+      line-height: 66rpx;
+      color:#fff;
+      background: ;
   }
 
 

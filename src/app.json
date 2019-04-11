@@ -4,7 +4,7 @@
     "pages/lianxi/main",
     "pages/logs/main",
     "pages/counter/main",
-    "pages/LatestVideo/main",
+    "pages/video/main",
     "pages/comment/main",
     "pages/call/main"
   ],
