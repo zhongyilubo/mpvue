@@ -5,7 +5,8 @@
     "pages/logs/main",
     "pages/counter/main",
     "pages/LatestVideo/main",
-    "pages/comment/main"
+    "pages/comment/main",
+    "pages/call/main"
   ],
   "window": {
     "backgroundTextStyle": "light",
