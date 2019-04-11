@@ -6,7 +6,8 @@
     "pages/counter/main",
     "pages/video/main",
     "pages/comment/main",
-    "pages/call/main"
+    "pages/call/main",
+    "pages/classify/main"
   ],
   "window": {
     "backgroundTextStyle": "light",

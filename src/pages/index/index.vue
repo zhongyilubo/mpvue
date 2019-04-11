@@ -4,6 +4,7 @@
     <a href="/pages/video/main" class="counter">去最新视频</a>
     <a href="/pages/comment/main" class="counter">去评论</a>
     <a href="/pages/call/main" class="counter">联系我们</a>
+    <a href="/pages/classify/main" class="counter">全部分类</a>
 
     <button class="authlogin" open-type="getUserInfo" @getuserinfo="bindGetUserInfo" v-if="getusershow"> 获取头像昵称 </button>
 
