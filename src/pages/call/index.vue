@@ -7,6 +7,9 @@
     <h1 class="myTitle">您要反应的问题</h1>
     <textarea name="" id="" cols="30" rows="10"></textarea>
     <div class="submitBut">提交</div>
+    <p>客服电话</p>
+    <p>400-0101-234</p>
+    <p>400-0101-234</p>
   </div>
 </template>
 
@@ -117,12 +120,17 @@
   .myContainer2 .submitBut{
       width: 100%;
       height: 66rpx;
+      font-size: 30rpx;
       text-align: center;
       line-height: 66rpx;
       color:#fff;
-      background: ;
+      background: #d11208;
+      margin-top: 30rpx;
   }
-
+  .myContainer2 p{
+    font-size: 30rpx;
+    margin-top: 35rpx;
+  }
 
 
 
