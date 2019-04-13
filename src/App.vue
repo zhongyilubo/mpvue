@@ -21,8 +21,8 @@ export default {
                       'code': res.code
                   }
               }).then(res => {
-                  mpvue.setStorageSync('token', res.access_token)
-                  mpvue.setStorageSync('openid', res.openid)
+                  mpvue.setStorageSync('token', res.data.access_token)
+                  mpvue.setStorageSync('openid', res.data.openid)
               })
           }
         })

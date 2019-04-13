@@ -16,8 +16,8 @@ function request (url, method, data = {},sign = true) {
             success: function (res) {
                 if(res.statusCode == 401 && sign){
                     return request ('refresh', 'POST', {},false).then(res => {
-                        res.access_token && (mpvue.setStorageSync('token', res.access_token) || 1) && request (url, method, data,false).then(res => {
-                            resolve(res.data)
+                        res.data.access_token && (mpvue.setStorageSync('token', res.data.access_token) || 1) && request (url, method, data,false).then(res => {
+                            resolve(res)
                         }).catch((res) => {
                             reject(res)
                         }) || tologin();
@@ -27,7 +27,7 @@ function request (url, method, data = {},sign = true) {
                 resolve(res.data)
             },
             fail: function (res) {
-                reject(res)
+                reject(res.data)
             },
             complete: function () {
                 wx.hideLoading()
