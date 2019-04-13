@@ -19,7 +19,7 @@ function request (url, method, data = {},sign = true) {
                         res.data.access_token && (mpvue.setStorageSync('token', res.data.access_token) || 1) && request (url, method, data,false).then(res => {
                             resolve(res)
                         }).catch((res) => {
-                            reject(res)
+                            reject(res);
                         }) || tologin();
                     });
                 }
@@ -36,7 +36,7 @@ function request (url, method, data = {},sign = true) {
     })
 }
 function tologin() {
-    
+    console.log('令牌时间过期 重新启动小程序');
 }
 
 function get (obj) {
