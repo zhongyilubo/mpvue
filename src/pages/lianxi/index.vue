@@ -72,6 +72,7 @@
 </template>
 
 <script>
+  import '@/assets/css/style.css';
   export default {
     data: {
       message: 'Hello Vue!'
@@ -85,14 +86,7 @@
 
 </script>
 
-<style scoped>
-
-  /* 通用 */
-  h1{ font-size: 42rpx; color: #333;}
-  p{ font-size: 30rpx; color: #000;}
-  .red{ color:#d11208; }
-  .gray{ color:#666;}
-  .h130{ height: 130rpx;}
+<!--<style scoped>
 
   /* 钱 名字 */
   .zt-money{ overflow: hidden; font-size: 26rpx; margin-top: 15rpx;}
@@ -100,7 +94,7 @@
   .zt-money dd{ float: right}
 
   .myContainer{ width: 92%; margin:0 4%;}
-  /*--------------------------------------------*/
+  /*&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;*/
   .inp-search{
     width: 100%;
     height: 55rpx;
@@ -158,4 +152,4 @@
   }
   .nav img{ width: 40rpx;}
 
-</style>
+</style>-->

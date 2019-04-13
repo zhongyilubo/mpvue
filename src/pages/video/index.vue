@@ -46,6 +46,7 @@
 </template>
 
 <script>
+  import '@/assets/css/style.css';
   export default {
     data: {
       message: 'Hello Vue!'
@@ -58,79 +59,3 @@
   }
 </script>
 
-<style scoped>
-
-  /* 通用 */
-  h1{ font-size: 42rpx; color: #333;}
-  p{ font-size: 30rpx; color: #000;}
-  .red{ color:#d11208; }
-  .gray{ color:#666;}
-  .h130{ height: 130rpx;}
-
-  /* 钱 名字 */
-  .zt-money{ overflow: hidden; font-size: 26rpx; margin-top: 15rpx;}
-  .zt-money dt{ float: left}
-  .zt-money dd{ float: right}
-
-  .myContainer{ width: 92%; margin:0 4%;}
-  /*--------------------------------------------*/
-  .inp-search{
-    width: 100%;
-    height: 55rpx;
-    font-size: 30rpx;
-    line-height: 30rpx;
-    border: 1px solid #8781a6;
-    display: inline-block;
-    box-sizing: border-box;
-    text-indent: 5px;
-    border-radius: 8rpx;
-    padding:0 0 0 70rpx;
-    margin: 13rpx 0 15rpx;
-    background: url("../../../../mpvue/static/images/search.png") no-repeat;
-    background-size:33rpx;
-    background-position: 20rpx center ;
-  }
-  .banner img{
-    width: 100%;
-    height: 350rpx;
-    /*background:blue;*/
-  }
-  .myTitle{
-    margin: 25rpx 0;
-  }
-  .zt-box{
-    overflow: hidden;
-  }
-  .zt-box li{ margin-bottom: 15px;}
-  .zt-box li span img{ width: 100%; height: 180rpx !important;}
-  .zt-box li:nth-child(2n-1){
-    float: left;
-    width: calc(50% - 8rpx);
-    margin-right: 8rpx;
-  }
-  .zt-box li:nth-child(2n){
-    float: left;
-    width: calc(50% - 8rpx);
-    margin-left: 8rpx;
-  }
-  /* nav 导航 */
-  .nav{
-    position:fixed;
-    bottom: 0;
-    width: 100%;
-    font-size: 30rpx;
-    padding:20rpx 0;
-    background: #fff;
-    border-top: 1rpx solid #e6e6e6;
-    overflow: hidden;
-  }
-  .nav li{
-    width: 25%;
-    text-align: center;
-    float:left;
-  }
-  .nav img{ width: 40rpx;}
-
-
-</style>
-<!--<style src="../../style.css"></style>-->
