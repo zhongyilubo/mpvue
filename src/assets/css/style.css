@@ -2,6 +2,7 @@
 /* 通用 */
 h1{ font-size: 42rpx; color: #333;}
 p{ font-size: 30rpx; color: #000;}
+.red-back{ background: #d11208; color:#fff; border: none;}
 .red{ color:#d11208; }
 .gray{ color:#666;}
 .h130{ height: 130rpx;}
@@ -12,6 +13,7 @@ p{ font-size: 30rpx; color: #000;}
 .zt-money dd{ float: right}
 
 .myContainer{ width: 92%; margin:0 4%;}
+.myContainer2{ width: 80%; margin:0 10%;}
 /*--------------------------------------------*/
 .inp-search{
   width: 100%;

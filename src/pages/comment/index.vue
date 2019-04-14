@@ -9,7 +9,7 @@
 </template>
 
 <script>
-  import '@/assets/css/comment.css';
+  import '@/assets/css/style.css';
   export default {
     data: {
       message: 'Hello Vue!'

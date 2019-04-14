@@ -1,6 +1,19 @@
 @import "style.css";
-
-
+.classify{ overflow: hidden}
+.classify li{
+  width: 45%;
+  font-size:35rpx;
+  text-align: center;
+  border:1px solid #ccc;
+  margin-right: 10%;
+  margin: 25rpx 10%  25rpx 0;
+  padding:35rpx 0;
+  box-sizing:border-box;
+  float: left;
+}
+.classify li:nth-child(2n){
+  margin-right: 0;
+}
 
 
 
