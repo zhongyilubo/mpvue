@@ -12,7 +12,7 @@
       <!-- 热门推荐 -->
       <h1 class="myTitle">热门推荐</h1>
 
-      <ul class="zt-box">
+      <ul class="zt-box one-line">
         <li>
           <span><img src="../../../../mpvue/static/images/class-img1.png" alt="" mode="widthFix" width="100%" ></span>
           <p>中医教你如何正确的拔罐子拔罐子拔罐子</p>
@@ -34,12 +34,12 @@
 
       <!-- 最新视频 -->
       <h1 class="myTitle">最新视频</h1>
-      <ul class="zt-box">
+      <ul class="zt-box two-line">
         <li>
           <span><img src="../../../../mpvue/static/images/class-img1.png" alt="" mode="widthFix"></span>
         </li>
         <li>
-          <p>著名中医教你如何正确的拔罐子</p>
+          <p>著名中医教你如何正确的拔罐子著名中医教你如何正确的拔罐子著名中医教你如何正确的拔罐子</p>
           <dl class="zt-money gray">
             <dt>李时珍</dt>
             <dd><span>256</span>次</dd>

@@ -9,7 +9,8 @@
     "pages/call/main",
     "pages/classify/main",
     "pages/install/main",
-    "pages/install/main"
+    "pages/mine/main",
+    "pages/buy/main"
   ],
   "window": {
     "backgroundTextStyle": "light",

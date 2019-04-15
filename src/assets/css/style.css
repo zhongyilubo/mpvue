@@ -44,6 +44,21 @@ p{ font-size: 30rpx; color: #000;}
 .zt-box{
   overflow: hidden;
 }
+.zt-box.one-line p{
+   overflow: hidden;
+   display: -webkit-box;
+   text-overflow: ellipsis;
+   -webkit-box-orient: vertical;
+   -webkit-line-clamp: 1;
+ }
+.zt-box.two-line p{
+  overflow: hidden;
+  display: -webkit-box;
+  text-overflow: ellipsis;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+}
+.zt-box.mt-30 li{ margin-top: 30rpx;}
 .zt-box li{ margin-bottom: 15px;}
 .zt-box li img{ width: 100%; height: auto;}
 .zt-box li:nth-child(2n-1){
@@ -73,3 +88,39 @@ p{ font-size: 30rpx; color: #000;}
   float:left;
 }
 .nav img{ width: 40rpx;}
+
+/* 我的购买 */
+.buy-scroll{ overflow: hidden;width: 1000rpx; border-bottom: 1px solid #ccc;}
+.buy-scroll li{
+   float: left;
+   font-size: 30rpx;
+   margin-right: 50rpx;
+   padding:30rpx 0;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
