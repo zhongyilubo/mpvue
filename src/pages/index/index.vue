@@ -6,6 +6,8 @@
     <a href="/pages/call/main" class="counter">联系我们</a>
     <a href="/pages/classify/main" class="counter">全部分类</a>
     <a href="/pages/install/main" class="counter">设置</a>
+    <a href="/pages/mine/main" class="counter">我的</a>
+    <a href="/pages/buy/main" class="counter">我的购买</a>
 
     <button class="authlogin" open-type="getUserInfo" @getuserinfo="bindGetUserInfo" v-if="getusershow"> 获取头像昵称 </button>
 

@@ -8,6 +8,7 @@
     "pages/comment/main",
     "pages/call/main",
     "pages/classify/main",
+    "pages/install/main",
     "pages/install/main"
   ],
   "window": {
