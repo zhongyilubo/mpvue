@@ -4,6 +4,8 @@
 
       <!-- 最新视频 -->
       <h1 class="myTitle">最新视频</h1>
+      <h1 class="myTitle">购买内容</h1>
+      <p style="margin-bottom: 30rpx">共搜到<span class="red">3</span>条结果</p>
       <ul class="zt-box">
         <li>
           <span><img src="../../../../mpvue/static/images/class-img1.png" alt="" mode="widthFix"></span>

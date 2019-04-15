@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="gray-back">
     <ul class="myContainer2 classify">
       <li class="red-back">器械类</li>
       <li>推拿按摩</li>

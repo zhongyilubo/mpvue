@@ -5,7 +5,7 @@
 </template>
 
 <script>
-  import '@/assets/css/install.css';
+  import '@/assets/css/style.css';
   export default {
     data: {
       message: 'Hello Vue!'
@@ -16,5 +16,5 @@
       }
     }
   }
-
 </script>
+
