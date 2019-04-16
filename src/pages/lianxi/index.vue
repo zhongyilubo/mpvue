@@ -1,5 +1,6 @@
 <template>
   <div>
+    <button class="authlogin" open-type="getUserInfo" @getuserinfo="bindGetUserInfo" v-if="getusershow"> 获取头像昵称 </button>
     <div class="myContainer">
       <!-- 搜索 -->
       <div>
@@ -7,7 +8,13 @@
       </div>
       <!-- banner -->
       <div class="banner">
-        <img src="../../../../mpvue/static/images/banner1.jpg" alt="" mode="widthFix">
+        <swiper class="swiper" indicator-dots="true" autoplay="true" interval="5000" duration="1000">
+          <block v-for="(item, index) in images" :index="index" :key="key">
+            <swiper-item>
+              <image :src="item" class="slide-image" mode="aspectFill"/>
+            </swiper-item>
+          </block>
+        </swiper>
       </div>
       <!-- 热门推荐 -->
       <h1 class="myTitle">热门推荐</h1>
@@ -75,12 +82,51 @@
   import '@/assets/css/style.css';
   export default {
     data: {
-      message: 'Hello Vue!'
+      images: [
+          '../../../../mpvue/static/images/banner1.jpg',
+          '../../../../mpvue/static/images/banner1.jpg',
+          '../../../../mpvue/static/images/banner1.jpg',
+          '../../../../mpvue/static/images/banner1.jpg',
+      ],
+      message: 'Hello Vue!',
+      getusershow:true,
+      userInfo: {}
+    },
+    mounted(){
+        var _this = this;
+        wx.getSetting({
+            success: function(res){
+                if (res.authSetting['scope.userInfo']) {
+                    wx.getUserInfo({
+                        success: function(res) {
+                            console.log(res.userInfo)
+                            //用户已经授权过
+                            console.log('用户已经授权过')
+                            _this.getusershow = false;
+                            _this.userInfo = res.userInfo;
+                            mpvue.setStorageSync('userInfo', res.userInfo)
+                        }
+                    })
+                }else{
+                    console.log('用户还未授权过')
+                }
+            }
+        })
     },
     methods: {
-      dddd(){
-        this.message = 'asdfsadfsdaf'
-      }
+        bindGetUserInfo(e) {
+            if (e.mp.detail.rawData){
+                //用户按了允许授权按钮
+                console.log('用户按了允许授权按钮')
+                console.log(e.mp.detail.userInfo);
+                this.getusershow = false;
+                this.userInfo = e.mp.detail.userInfo;
+                mpvue.setStorageSync('userInfo', e.mp.detail.userInfo)
+            } else {
+                //用户按了拒绝按钮
+                console.log('用户按了拒绝按钮')
+            }
+        }
     }
   }
 
