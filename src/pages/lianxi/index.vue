@@ -82,18 +82,21 @@
   import '@/assets/css/style.css';
   export default {
     data: {
-      images: [
-          '../../../../mpvue/static/images/banner1.jpg',
-          '../../../../mpvue/static/images/banner1.jpg',
-          '../../../../mpvue/static/images/banner1.jpg',
-          '../../../../mpvue/static/images/banner1.jpg',
-      ],
+      images: [],
       message: 'Hello Vue!',
       getusershow:true,
       userInfo: {}
     },
     mounted(){
         var _this = this;
+
+        _this.$net.post({
+            url: 'index',
+            data: {}
+        }).then(res => {
+            _this.images = res.data.banner.image;
+        })
+
         wx.getSetting({
             success: function(res){
                 if (res.authSetting['scope.userInfo']) {
