@@ -1,7 +1,7 @@
 <template>
   <div>
     <ul class="install-list">
-      <li>消息通知</li>
+      <li>消息通知 <div><span>123</span></div></li>
       <li>清楚缓存</li>
       <li>退出登录</li>
     </ul>
