@@ -1,10 +1,15 @@
 @import "style.css";
 
+.install-list{ margin-top: 10rpx;}
 .install-list li{
   font-size: 32rpx;
   padding: 30rpx 5%;
+  border-bottom:1px solid #ccc;
 }
-
+.install-list .change{
+  width: 100rpx;
+  hight: 38rpx;
+}
 
 
 
