@@ -4,7 +4,7 @@ h1{ font-size: 38rpx; color: #333;}
 p{ font-size: 30rpx; color: #000;}
 .position-r{ position: relative;}
 .red-back{ background: #d11208; color:#fff; border: none;}
-.red{ color:#d11208; }
+.red{ color:#d11208!important; }
 .gray{ color:#666;}
 .gray-back{ height:100%; background: #eee9e9}
 .h130{ height: 130rpx;}

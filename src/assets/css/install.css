@@ -36,5 +36,38 @@
 .mine-head{
   height: 200rpx;
   background: #fff;
+  border-bottom: 1px solid red;
 }
-
+.mine-head-img{
+  margin:20rpx;
+  width: 135rpx;
+  height: 135rpx;
+  border-radius: 50% 50%;
+  background: #d11208;
+  float: left;
+}
+.mine-head-box{
+  padding-left: 15rpx;
+  float: left;
+}
+.mine-head-box h1{
+  display: block;
+  margin-top: 30rpx;
+}
+.mine-head-box span{
+  display: inline-block;
+  margin-top: 20rpx;
+  width: 140rpx;
+  height: 54rpx;
+  color: #b9b5cd;
+  text-align: center;
+  line-height: 54rpx;
+  font-size: 30rpx;
+  border-radius: 8rpx;
+  border: 1rpx solid #b9b5cd;
+}
+.install-list img{
+  display: inline-block;
+  margin-right: 50rpx;
+  vertical-align: middle;
+}
