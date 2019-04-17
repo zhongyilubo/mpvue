@@ -1,15 +1,35 @@
 @import "style.css";
 
-.install-list{ margin-top: 10rpx;}
+.install-list{ margin-top: 10rpx; background: #fff;}
 .install-list li{
-  font-size: 32rpx;
+  font-size: 38rpx;
   padding: 30rpx 5%;
   border-bottom:1px solid #ccc;
 }
-.install-list .change{
-  width: 100rpx;
-  hight: 38rpx;
+.change{
+  position: relative;
 }
-
-
+.install-list .change>div{
+  position:absolute;
+  top:33rpx;
+  right:5%;
+  width: 100rpx;
+  height: 38rpx;
+  background: #d11208;
+  border-radius: 8rpx;
+}
+.change>div>span{
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 60%;
+  height: 38rpx;
+  background: #fff;
+  border: 1rpx solid #d11208;
+  border-radius: 8rpx;
+  box-sizing: border-box;
+}
+.change .open{
+  margin-left: 40%;
+}
 
