@@ -4,7 +4,7 @@
 .install-list li{
   font-size: 38rpx;
   padding: 30rpx 5%;
-  border-bottom:1px solid #ccc;
+  border-bottom:1px solid #eee9e9;
 }
 .change{
   position: relative;
@@ -31,5 +31,10 @@
 }
 .change .open{
   margin-left: 40%;
+}
+/*-------------------------------*/
+.mine-head{
+  height: 200rpx;
+  background: #fff;
 }
 

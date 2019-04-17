@@ -4,7 +4,7 @@
 
     </div>
     <ul class="install-list">
-      <li>消息通知</li>
+      <li><img src="../../../static/images/mine-buy.png" alt="">消息通知 </li>
       <li>清楚缓存</li>
       <li>退出登录</li>
     </ul>
@@ -12,7 +12,7 @@
 </template>
 
 <script>
-  import '@/assets/css/mine.css';
+  import '@/assets/css/install.css';
   export default {
     data: {
       message: 'Hello Vue!'
