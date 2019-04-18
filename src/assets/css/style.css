@@ -8,6 +8,10 @@ p{ font-size: 30rpx; color: #000;}
 .gray{ color:#666;}
 .gray-back{ height:100%; background: #eee9e9}
 .h130{ height: 130rpx;}
+.ml-10{ margin-left: 10rpx;}
+.mb-25{ margin-bottom: 25rpx;}
+.display-inline{ display: inline-block; }
+.b-b{ border-bottom: 1px solid #b9b5cd;}
 
 /* 钱 名字 */
 .zt-money{ overflow: hidden; font-size: 26rpx; margin-top: 15rpx;}
@@ -39,7 +43,7 @@ p{ font-size: 30rpx; color: #000;}
   /*background:blue;*/
 }
 .myTitle{
-  margin: 25rpx 0;
+  padding: 25rpx 0;
 }
 .zt-box{
   overflow: hidden;
@@ -97,7 +101,6 @@ p{ font-size: 30rpx; color: #000;}
    margin-right: 50rpx;
    padding:30rpx 0;
 }
-
 .authlogin{
     position: fixed;
     width: 100%;
@@ -106,3 +109,38 @@ p{ font-size: 30rpx; color: #000;}
     top: 0;
     left: 0;
 }
+/* 视频详情 */
+.details{ width: 100%; height: 350rpx; background: aquamarine;}
+.video-comment li{
+  overflow: hidden;
+  padding: 30rpx 0;
+  border-top:1px solid #8781a6;
+}
+.video-comment-img{
+  width:85rpx;
+  height: 85rpx;
+  border-radius: 50%;
+  background: #d11208;
+  margin-right:25rpx;
+  float: left;
+}
+
+.video-comment-font{
+  font-size: 30rpx;
+  width: 70%;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -3,27 +3,30 @@
     <div class="myContainer">
 
       <!-- 最新视频 -->
-      <h1 class="myTitle">最新视频</h1>
-      <h1 class="myTitle">购买内容</h1>
-      <p style="margin-bottom: 30rpx">共搜到<span class="red">3</span>条结果</p>
-      <ul class="zt-box">
-        <li>
-          <span><img src="../../../../mpvue/static/images/class-img1.png" alt="" mode="widthFix"></span>
-        </li>
-        <li>
-          <p>著名中医教你如何正确的拔罐子</p>
+      <div class="details"></div>
+      <div class="mb-25">
+          <h1 class="myTitle">中医教你如何正确的拔罐子第3节</h1>
+          <div class="zt-money gray">李时珍 <span class="red display-inline ml-10">单课</span></div>
           <dl class="zt-money gray">
-            <dt></dt>
-            <dd>03-31</dd>
+            <dt><span>296</span>次播放  <span>03-31</span> <span>45:00</span></dt>
+            <dd class="red">购买系列课后观看</dd>
           </dl>
-          <dl class="zt-money gray">
-            <dt>李时珍</dt>
-            <dd><span>256</span>次</dd>
-          </dl>
-          <dl class="zt-money red">
-            <dt>￥:<span>52.00</span></dt>
-            <dd>系列课</dd>
-          </dl>
+      </div>
+
+
+      <h1 class="myTitle mb-25">评论</h1>
+      <ul class="video-comment">
+        <li>
+          <div class="video-comment-img"></div>
+          <div class="video-comment-font">
+            <div>毛豆花生</div>
+            <div class="zt-money gray">201912-31  23:29:59</div>
+            <p>视频不错，学到了很多东西，感谢老师，老师辛苦了。</p>
+            <dl>
+                <dt><i></i>94</dt>
+                <dd>回复</dd>
+            </dl>
+          </div>
         </li>
       </ul>
 
