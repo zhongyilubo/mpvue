@@ -1,7 +1,7 @@
 
 /* 通用 */
 h1{ font-size: 38rpx; color: #333;}
-p{ font-size: 30rpx; color: #000;}
+p{ font-size: 30rpx; color: #333;}
 .position-r{ position: relative;}
 .red-back{ background: #d11208; color:#fff; border: none;}
 .red{ color:#d11208!important; }
@@ -16,6 +16,8 @@ p{ font-size: 30rpx; color: #000;}
 /* 钱 名字 */
 .zt-money{ overflow: hidden; font-size: 26rpx; margin-top: 15rpx;}
 .zt-money dt{ float: left}
+.zt-money .kuan span{ margin-left: 15rpx;}
+.zt-money .kuan span:first-child{ margin-left: 0rpx;}
 .zt-money dd{ float: right}
 
 .myContainer{ width: 92%; margin:0 4%;}
@@ -111,10 +113,12 @@ p{ font-size: 30rpx; color: #000;}
 }
 /* 视频详情 */
 .details{ width: 100%; height: 350rpx; background: aquamarine;}
+.video-comment{ margin-bottom: 20rpx;}
+/*.video-comment li:last-child{ border-bottom: 1rpx solid #8781a6;}*/
 .video-comment li{
   overflow: hidden;
   padding: 30rpx 0;
-  border-top:1px solid #8781a6;
+  border-top:1rpx solid #8781a6;
 }
 .video-comment-img{
   width:85rpx;
@@ -127,10 +131,29 @@ p{ font-size: 30rpx; color: #000;}
 
 .video-comment-font{
   font-size: 30rpx;
-  width: 70%;
+  line-height: 45rpx;
+  width: calc( 100% - 110rpx );
+  float: left;
 }
-
-
+.video-comment-font dl dt,.video-comment-font dl dd{
+   display: inline-block;
+ }
+.video-comment-font dl dt{
+  width:120rpx;
+  margin-top: 15rpx;
+}
+.fabulous{
+  display: inline-block;
+  width:30rpx;
+  height: 36rpx;
+  margin-right:15rpx;
+  background:url("../../../../mpvue/static/images/fabulous.png") no-repeat;
+  background-size: 30rpx 36rpx;
+}
+.fabulous-red{
+  background:url("../../../../mpvue/static/images/fabulous-red.png") no-repeat;
+  background-size: 30rpx 36rpx;
+}
 
 
 
