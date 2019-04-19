@@ -9,6 +9,8 @@
     <a href="/pages/mine/main" class="counter">我的</a>
     <a href="/pages/buy/main" class="counter">我的购买</a>
     <a href="/pages/video-details/main" class="counter">视频详情</a>
+    <a href="/pages/video-details-introduce/main" class="counter">视频详情带简介评论</a>
+    <!--<a href="/pages/video-details/main" class="counter">视频详情带简介视频</a>-->
 
     <div @click="getme">获取信息</div>
 

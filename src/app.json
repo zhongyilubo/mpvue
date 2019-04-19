@@ -11,7 +11,8 @@
     "pages/install/main",
     "pages/mine/main",
     "pages/buy/main",
-    "pages/video-details/main"
+    "pages/video-details/main",
+    "pages/video-details-introduce/main"
   ],
   "window": {
     "backgroundTextStyle": "light",

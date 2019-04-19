@@ -14,7 +14,7 @@ p{ font-size: 30rpx; color: #333;}
 .b-b{ border-bottom: 1px solid #b9b5cd;}
 
 /* 钱 名字 */
-.zt-money{ overflow: hidden; font-size: 26rpx; margin-top: 15rpx;}
+.zt-money{ overflow: hidden; font-size: 26rpx; padding-top: 15rpx;}
 .zt-money dt{ float: left}
 .zt-money .kuan span{ margin-left: 15rpx;}
 .zt-money .kuan span:first-child{ margin-left: 0rpx;}
@@ -116,9 +116,12 @@ p{ font-size: 30rpx; color: #333;}
 .video-comment{ margin-bottom: 20rpx;}
 /*.video-comment li:last-child{ border-bottom: 1rpx solid #8781a6;}*/
 .video-comment li{
-  overflow: hidden;
-  padding: 30rpx 0;
-  border-top:1rpx solid #8781a6;
+   overflow: hidden;
+   padding: 30rpx 0;
+   border-top:1rpx solid #b9b5cd;
+ }
+.video-comment li:first-child{
+  border-top:0;
 }
 .video-comment-img{
   width:85rpx;
@@ -154,7 +157,16 @@ p{ font-size: 30rpx; color: #333;}
   background:url("../../../../mpvue/static/images/fabulous-red.png") no-repeat;
   background-size: 30rpx 36rpx;
 }
-
+.pay{
+  width:150rpx;
+  height: 60rpx;
+  text-align: center;
+  line-height: 60rpx;
+  border: 1rpx solid #b9b5cd;
+  border-radius: 8rpx;
+  margin-top: -14rpx;
+  margin-left: 50rpx;
+}
 
 
 

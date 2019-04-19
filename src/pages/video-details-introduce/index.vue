@@ -9,13 +9,18 @@
           <div class="zt-money gray">李时珍 <span class="red display-inline ml-10">单课</span></div>
           <dl class="zt-money gray">
             <dt class="kuan"><span>296</span>次播放<span>03-31</span> <span>45:00</span></dt>
-            <dd class="red">购买系列课后观看</dd>
-            <dd></dd>
+            <dd class="pay">微信支付</dd>
+            <dd class="red">¥:52.00</dd>
           </dl>
       </div>
+      <h1 class="myTitle mb-25 b-b">简介</h1>
+      <p>
+        此处视频简介，该视频有著名中医谭启明，经过十几年的
+        临床验证，总结出的视频教学，视频涵盖众多只是要点，
+        该视频共 1 节
+      </p>
 
-
-      <h1 class="myTitle mb-25">评论</h1>
+      <h1 class="myTitle b-b">评论</h1>
       <ul class="video-comment">
         <li>
           <div class="video-comment-img"></div>

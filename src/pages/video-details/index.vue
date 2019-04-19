@@ -15,7 +15,7 @@
       </div>
 
 
-      <h1 class="myTitle mb-25">评论</h1>
+      <h1 class="myTitle b-b">评论</h1>
       <ul class="video-comment">
         <li>
           <div class="video-comment-img"></div>
