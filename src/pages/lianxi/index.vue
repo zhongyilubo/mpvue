@@ -9,7 +9,7 @@
       <!-- banner -->
       <div class="banner">
         <swiper class="swiper" indicator-dots="true" autoplay="true" style="height:100%;" interval="5000" duration="1000">
-          <block v-for="(item, index) in images" :index="index" :key="key">
+          <block v-for="(item, index) in banner" :index="index" :key="key">
             <swiper-item>
               <image :src="item" class="slide-image" mode="aspectFill"/>
             </swiper-item>
@@ -20,40 +20,33 @@
       <h1 class="myTitle">热门推荐</h1>
 
       <ul class="zt-box one-line">
-        <li>
-          <span><img src="../../../../mpvue/static/images/class-img1.png" alt="" mode="widthFix" width="100%" ></span>
-          <p>中医教你如何正确的拔罐子拔罐子拔罐子</p>
+
+        <li v-for="(item, index) in hot" :index="index" :key="key">
+          <span><img :src="item.cover" alt="" mode="widthFix" width="100%" ></span>
+          <p>{{item.name}}</p>
           <dl class="zt-money">
-            <dt class="red">￥:<span>52.00</span></dt>
-            <dd class="gray">李时珍</dd>
+            <dt class="red">￥<span>{{item.price}}</span></dt>
+            <dd class="gray">{{item.teacher}}</dd>
           </dl>
         </li>
 
-        <li>
-          <span><img src="../../../../mpvue/static/images/class-img1.png" alt="" mode="widthFix"></span>
-          <p>中医教你如何正确的拔罐子拔罐子拔罐子</p>
-          <dl class="zt-money">
-            <dt class="red">￥:<span>52.00</span></dt>
-            <dd class="gray">李时珍</dd>
-          </dl>
-        </li>
       </ul>
 
       <!-- 最新视频 -->
       <h1 class="myTitle">最新视频</h1>
-      <ul class="zt-box two-line">
+      <ul class="zt-box two-line" v-for="(item, index) in news" :index="index" :key="key">
         <li>
-          <span><img src="../../../../mpvue/static/images/class-img1.png" alt="" mode="widthFix"></span>
+          <span><img :src="item.cover" alt="" mode="widthFix"></span>
         </li>
         <li>
-          <p>著名中医教你如何正确的拔罐子著名中医教你如何正确的拔罐子著名中医教你如何正确的拔罐子</p>
+          <p>{{item.name}}</p>
           <dl class="zt-money gray">
-            <dt>李时珍</dt>
-            <dd><span>256</span>次</dd>
+            <dt>{{item.teacher}}</dt>
+            <dd><span>{{item.number}}</span>次</dd>
           </dl>
           <dl class="zt-money red">
-            <dt>￥:<span>52.00</span></dt>
-            <dd>系列课</dd>
+            <dt>￥<span>{{item.price}}</span></dt>
+            <dd>{{item.type_name}}</dd>
           </dl>
         </li>
       </ul>
@@ -67,7 +60,9 @@
   import bottomnav from '@/components/nav.vue';
   export default {
     data: {
-      images: [],
+      banner: [],
+      hot: [],
+      news: [],
       message: 'Hello Vue!',
       getusershow:true,
       userInfo: {}
@@ -82,7 +77,9 @@
             url: 'index',
             data: {}
         }).then(res => {
-            _this.images = res.data.banner.image;
+            _this.banner = res.data.banner.image;
+            _this.hot = res.data.hot;
+            _this.news = res.data.new;
         })
 
         wx.getSetting({

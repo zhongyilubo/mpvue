@@ -1,12 +1,8 @@
 <template>
   <div class="gray-back">
     <ul class="myContainer2 classify">
-      <li class="red-back">器械类</li>
-      <li>推拿按摩</li>
-      <li>正骨疗法</li>
-      <li>针灸拔罐</li>
-      <li>名家名医</li>
-      <li>最新视频</li>
+      <!--<li class="red-back">器械类</li>-->
+      <li v-for="(item, index) in category" :index="index" :key="key">{{item.name}}</li>
     </ul>
   </div>
 
@@ -16,7 +12,17 @@
   import '@/assets/css/classify.css';
   export default {
     data: {
-      message: 'Hello Vue!'
+      category: []
+    },
+    mounted(){
+        var _this = this;
+
+        _this.$net.post({
+            url: 'category',
+            data: {}
+        }).then(res => {
+            _this.category = res.data;
+        })
     },
     methods: {
       dddd(){
