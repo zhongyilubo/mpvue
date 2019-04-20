@@ -8,7 +8,7 @@
       </div>
       <!-- banner -->
       <div class="banner">
-        <swiper class="swiper" indicator-dots="true" autoplay="true" interval="5000" duration="1000">
+        <swiper class="swiper" indicator-dots="true" autoplay="true" style="height:100%;" interval="5000" duration="1000">
           <block v-for="(item, index) in images" :index="index" :key="key">
             <swiper-item>
               <image :src="item" class="slide-image" mode="aspectFill"/>
@@ -57,35 +57,23 @@
           </dl>
         </li>
       </ul>
-
     </div>
-    <div class="h130"></div>
-    <ul class="nav">
-      <li><a href="">
-        <img src="../../../../mpvue/static/images/nav-index.png" mode="widthFix" alt=""><br/>首页
-      </a></li>
-      <li><a href="">
-          <img src="../../../../mpvue/static/images/nav-classify.png" mode="widthFix" alt=""><br/>分类
-       </a></li>
-      <li><a href="">
-        <img src="../../../../mpvue/static/images/nav-news.png" mode="widthFix" alt=""><br/>消息
-      </a></li>
-      <li><a href="">
-        <img src="../../../../mpvue/static/images/nav-myself.png" mode="widthFix" alt=""><br/>我的
-      </a></li>
-    </ul>
-
+    <bottomnav></bottomnav>
   </div>
 </template>
 
 <script>
   import '@/assets/css/style.css';
+  import bottomnav from '@/components/nav.vue';
   export default {
     data: {
       images: [],
       message: 'Hello Vue!',
       getusershow:true,
       userInfo: {}
+    },
+    components: {
+        bottomnav
     },
     mounted(){
         var _this = this;
