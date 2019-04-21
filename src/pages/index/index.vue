@@ -11,6 +11,7 @@
     <a href="/pages/video-details/main" class="counter">视频详情</a>
     <a href="/pages/video-details-introduce/main" class="counter">视频详情带简介评论</a>
     <a href="/pages/integral/main" class="counter">我的积分</a>
+    <a href="/pages/message/main" class="counter">消息</a>
 
     <div @click="getme">获取信息</div>
 
