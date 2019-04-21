@@ -10,6 +10,7 @@ p{ font-size: 30rpx; color: #333;}
 .h130{ height: 130rpx;}
 .ml-10{ margin-left: 10rpx;}
 .mb-25{ margin-bottom: 25rpx;}
+.mt-25{ margin-top: 25rpx;}
 .display-inline{ display: inline-block; }
 .b-b{ border-bottom: 1px solid #b9b5cd;}
 
@@ -168,11 +169,30 @@ p{ font-size: 30rpx; color: #333;}
   margin-left: 50rpx;
 }
 
-
-
-
-
-
+/*----------- 我的积分 --------------*/
+.integral li{
+  padding-bottom:35rpx;
+  border-bottom: 1rpx solid #b9b5cd;
+}
+.integral li:first-child{
+  padding-top:0rpx;
+}
+.integral li:last-child{
+  border-bottom: 0rpx;
+}
+.integral-top{
+   padding-bottom: 35rpx;
+   position: relative;
+ }
+.integral-top .integral-font{
+  font-size: 30rpx;
+}
+.integral-top .number{
+  position: absolute;
+  right: 0;
+  top: 0rpx;
+  font-size:100rpx;
+}
 
 
 
