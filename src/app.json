@@ -12,7 +12,8 @@
     "pages/mine/main",
     "pages/buy/main",
     "pages/video-details/main",
-    "pages/video-details-introduce/main"
+    "pages/video-details-introduce/main",
+    "pages/integral/main"
   ],
   "window": {
     "backgroundTextStyle": "light",
