@@ -13,7 +13,7 @@
       </div>
     </div>
     <ul class="install-list">
-      <li>
+      <li @click="navigateTo('/pages/buy/main')">
         <img src="../../../static/images/mine-buy.png" alt="" mode="widthFix" style="width: 39rpx; height: 43rpx">
         我的购买
       </li>
@@ -64,6 +64,16 @@
                 url: 'sign'
             }).then(res => {
                 _this.issign = res.data.issign;
+            })
+        },
+        rediectTo(url) {
+            wx.redirectTo({
+                url: url
+            })
+        },
+        navigateTo(url){
+            wx.navigateTo({
+                url: url
             })
         }
     }
