@@ -11,9 +11,9 @@
 <script>
   import '@/assets/css/classify.css';
   export default {
-    data: {
-      category: []
-    },
+      data: {
+        category: []
+      },
     mounted(){
         var _this = this;
 
