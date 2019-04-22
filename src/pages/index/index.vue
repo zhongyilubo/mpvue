@@ -1,5 +1,6 @@
 <template>
   <div>
+
     <a href="/pages/lianxi/main" class="counter">去首页</a>
     <a href="/pages/video/main" class="counter">去最新视频</a>
     <a href="/pages/comment/main" class="counter">去评论</a>

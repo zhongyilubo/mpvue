@@ -1,14 +1,14 @@
 <template>
   <div>
-    <div class="buy-scroll">
-      <ul class="myContainer">
+
+    <scroll-view class="buy-scroll" scroll-x="true" >
+        &nbsp;&nbsp;
         <li>全部购买</li>
         <li>针灸拔罐</li>
         <li>正骨疗法</li>
         <li>推拿按摩</li>
         <li>名家名医</li>
-      </ul>
-    </div>
+    </scroll-view>
 
     <div class="myContainer">
       <ul class="zt-box one-line mt-30">
@@ -52,7 +52,23 @@
     </div>
   </div>
 </template>
-
+<style>
+  .box {
+    width:100vw;
+    hight: 200rpx;
+    /*white-space 不能丢  */
+    white-space: nowrap;
+    border: 1px solid red;
+    box-sizing: border-box
+  }
+  .box-item {
+    width: 45%;
+    hight:100%;
+    border:2rpx solid green;
+    box-sizing: border-box;
+    display: inline-block
+  }
+</style>
 <script>
   import '@/assets/css/style.css';
   export default {

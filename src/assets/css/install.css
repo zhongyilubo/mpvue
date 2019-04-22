@@ -43,8 +43,8 @@
   width: 135rpx;
   height: 135rpx;
   border-radius: 50% 50%;
-  background: #d11208;
   float: left;
+  overflow: hidden;
 }
 .mine-head-box{
   padding-left: 15rpx;

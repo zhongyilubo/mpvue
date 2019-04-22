@@ -2,10 +2,13 @@
   <div>
     <div class="mine-head">
       <div class="myContainer">
-          <div class="mine-head-img"></div>
+          <div class="mine-head-img">
+            <img :src="userinfo.avatarUrl" style="height: 100%; width: 100%;"/>
+          </div>
           <div class="mine-head-box">
-              <h1>花生毛豆</h1>
-              <span class="red">今日签到</span>
+              <h1>{{userinfo.nickName}}</h1>
+              <span v-if="!issign" class="red" @click="sign">今日签到</span>
+              <span v-if="issign">已签到</span>
           </div>
       </div>
     </div>
@@ -38,12 +41,31 @@
   import '@/assets/css/install.css';
   export default {
     data: {
-      message: 'Hello Vue!'
+      message: 'Hello Vue!',
+      userinfo : [],
+      issign : 0,
+    },
+    mounted(){
+        var _this = this;
+
+        _this.userinfo = mpvue.getStorageSync('userInfo') || [];
+
+        _this.$net.post({
+            url: 'userinfo'
+        }).then(res => {
+            _this.issign = res.data.issign;
+        })
     },
     methods: {
-      dddd(){
-        this.message = 'asdfsadfsdaf'
-      }
+        sign(){
+            var _this = this;
+
+            _this.$net.post({
+                url: 'sign'
+            }).then(res => {
+                _this.issign = res.data.issign;
+            })
+        }
     }
   }
 </script>
