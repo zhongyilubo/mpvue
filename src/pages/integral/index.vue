@@ -4,24 +4,16 @@
     <div class="integral-top">
       <h1 class="myTitle">我的积分数</h1>
       <div class="integral-font red">查看积分规则</div>
-      <div class="number red">582</div>
+      <div class="number red">{{integral}}</div>
     </div>
 
     <ul class="integral mt-25">
-      <li>
-        <h1 class="myTitle">获取积分</h1>
-        <p>尊敬的用户，您于2019年12月21日，成功支付了52. 00元，并获得了，52积分，请在我的积分中查看</p>
+      <li v-for="(item,index) in listintegral" :index="index" :key="key">
+        <h1 class="myTitle">{{item.type_name}}</h1>
+        <p>{{item.content}}</p>
         <dl class="zt-money gray">
-          <dt class="kuan">201903-31 23:59:59</dt>
-          <dd class="red">删除</dd>
-        </dl>
-      </li>
-      <li>
-        <h1 class="myTitle">消费积分</h1>
-        <p>尊敬的用户，您于2019年12月21日，成功支付了52. 00元，并获得了，52积分，请在我的积分中查看</p>
-        <dl class="zt-money gray">
-          <dt class="kuan">201903-31 23:59:59</dt>
-          <dd class="red">删除</dd>
+          <dt class="kuan">{{item.created_at}}</dt>
+          <dd class="red" @click="cutout">删除</dd>
         </dl>
       </li>
     </ul>
@@ -32,13 +24,40 @@
   import '@/assets/css/style.css';
   export default {
     data: {
-      message: 'Hello Vue!'
+      integral:0,
+      listintegral:[]
     },
-    methods: {
-      dddd(){
-        this.message = 'asdfsadfsdaf'
+    mounted(){
+      this.send()
+    },
+    methods:{
+      cutout(){
+        //只是地址
+        var _this = this;
+        _this.$net.post({
+          url: 'integral/delete/4',
+          data: {}
+        }).then(res => {
+          _this.send();
+        })
+      },
+      send(){
+        var _this = this;
+        _this.$net.post({
+          url: 'integral',
+          data: {}
+        }).then(res => {
+          _this.integral = res.data.user.integral;
+          _this.listintegral = res.data.lists;
+        })
       }
     }
   }
+
+
+
+
+
+  //integral
 </script>
 

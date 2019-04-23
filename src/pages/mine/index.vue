@@ -17,7 +17,7 @@
         <img src="../../../static/images/mine-buy.png" alt="" mode="widthFix" style="width: 39rpx; height: 43rpx">
         我的购买
       </li>
-      <li>
+      <li @click="navigateTo('/pages/integral/main')">
         <img src="../../../static/images/mine-bp.png" alt="" mode="widthFix" style="width: 39rpx; height: 43rpx">
         我的积分
       </li>
