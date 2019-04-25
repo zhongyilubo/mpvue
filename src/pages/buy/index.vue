@@ -12,7 +12,7 @@
 
     <div class="myContainer">
       <ul class="zt-box one-line mt-30">
-        <li v-for="(item, index) in hot" :index="index" :key="key">
+        <li v-for="(item, index) in buyvideo" :index="index" :key="key">
           <span><img :src="item.cover" alt="" mode="widthFix" width="100%" ></span>
           <p>{{item.name}}</p>
           <dl class="zt-money">
@@ -82,24 +82,30 @@
   export default {
     data: {
       category: [],
-
+      buyvideo:[]
     },
     mounted(){
-      var _this = this;
-
-      _this.$net.post({
-        url: 'category',
-        data: {}
-      }).then(res => {
-        _this.category = res.data;
-      })
-
-
-
+      this.buylist();
+      this.buyli();
       },
     methods: {
-      dddd(){
-        this.message = 'asdfsadfsdaf'
+      buylist(){
+        var _this = this;
+        _this.$net.post({
+          url: 'category',
+          data: {}
+        }).then(res => {
+          _this.category = res.data;
+        })
+      },
+      buyli(){
+        var _this = this;
+        _this.$net.post({
+          url: 'buy',
+          data: {}
+        }).then(res => {
+          _this.buyvideo = res.data;
+        })
       }
     }
   }
