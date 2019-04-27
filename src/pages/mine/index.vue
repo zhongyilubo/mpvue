@@ -25,11 +25,11 @@
         <img src="../../../static/images/mine-mall.png" alt="" mode="widthFix" style="width: 39rpx; height: 43rpx">
         我的商城
       </li>
-      <li>
+      <li @click="navigateTo('/pages/call/main')">
         <img src="../../../static/images/mine-call.png" alt="" mode="widthFix" style="width: 39rpx; height: 43rpx">
         联系客服
       </li>
-      <li>
+      <li @click="navigateTo('/pages/install/main')">
         <img src="../../../static/images/mine-install.png" alt="" mode="widthFix" style="width: 39rpx; height: 43rpx">
         我的设置
       </li>
@@ -72,10 +72,10 @@
             })
         },
         navigateTo(url){
-            wx.navigateTo({
-                url: url
-            })
-        }
+        wx.navigateTo({
+          url: url
+        })
+      }
     }
   }
 </script>
