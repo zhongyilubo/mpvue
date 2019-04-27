@@ -2,12 +2,8 @@
   <div>
 
     <scroll-view class="buy-scroll" scroll-x="true" >
-        &nbsp;&nbsp;<li v-for="(item, index) in category" :index="index" :key="key">{{item.name}}</li>
-        <!--<li>全部购买</li>
-        <li>针灸拔罐</li>
-        <li>正骨疗法</li>
-        <li>推拿按摩</li>
-        <li>名家名医</li>-->
+        &nbsp;&nbsp;<li data-id="0" @click="getcategory">全部购买</li>
+        <li v-for="(item, index) in category" :index="index" :key="key" @click="getcategory" :data-id="item.id">{{item.name}}</li>
     </scroll-view>
 
     <div class="myContainer">
@@ -20,42 +16,6 @@
             <dd class="gray">{{item.teacher}}</dd>
           </dl>
         </li>
-        <!--<li>
-          <span><img src="../../../../mpvue/static/images/class-img1.png" alt="" mode="widthFix" width="100%" ></span>
-          <p>中医教你如何正确的拔罐子拔罐子拔罐子</p>
-          <dl class="zt-money">
-            <dt class="red">￥:<span>52.00</span></dt>
-            <dd class="gray">李时珍</dd>
-          </dl>
-        </li>-->
-
-        <!--<li>
-          <span><img src="../../../../mpvue/static/images/class-img1.png" alt="" mode="widthFix"></span>
-          <p>中医教你如何正确的拔罐子拔罐子拔罐子</p>
-          <dl class="zt-money">
-            <dt class="red">￥:<span>52.00</span></dt>
-            <dd class="gray">李时珍</dd>
-          </dl>
-        </li>
-
-        <li>
-          <span><img src="../../../../mpvue/static/images/class-img1.png" alt="" mode="widthFix" width="100%" ></span>
-          <p>中医教你如何正确的拔罐子拔罐子拔罐子</p>
-          <dl class="zt-money">
-            <dt class="red">￥:<span>52.00</span></dt>
-            <dd class="gray">李时珍</dd>
-          </dl>
-        </li>
-
-        <li>
-          <span><img src="../../../../mpvue/static/images/class-img1.png" alt="" mode="widthFix"></span>
-          <p>中医教你如何正确的拔罐子拔罐子拔罐子</p>
-          <dl class="zt-money">
-            <dt class="red">￥:<span>52.00</span></dt>
-            <dd class="gray">李时珍</dd>
-          </dl>
-        </li>-->
-
       </ul>
     </div>
   </div>
@@ -98,14 +58,17 @@
           _this.category = res.data;
         })
       },
-      buyli(){
+      buyli(cid = 0){
         var _this = this;
         _this.$net.post({
           url: 'buy',
-          data: {}
+          data: {cid:cid}
         }).then(res => {
           _this.buyvideo = res.data;
         })
+      },
+      getcategory(e){
+          this.buyli(e.currentTarget.dataset.id)
       }
     }
   }

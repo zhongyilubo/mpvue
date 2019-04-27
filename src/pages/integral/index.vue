@@ -13,7 +13,7 @@
         <p>{{item.content}}</p>
         <dl class="zt-money gray">
           <dt class="kuan">{{item.created_at}}</dt>
-          <dd class="red" @click="cutout">删除</dd>
+          <dd class="red" @click="cutout" :data-id="item.id">删除</dd>
         </dl>
       </li>
     </ul>
@@ -31,11 +31,12 @@
       this.send()
     },
     methods:{
-      cutout(){
+      cutout(e){
+          var id = e.currentTarget.dataset.id;
         //只是地址
         var _this = this;
         _this.$net.post({
-          url: 'integral/delete/4',
+          url: 'integral/delete/'+id,
           data: {}
         }).then(res => {
           _this.send();
