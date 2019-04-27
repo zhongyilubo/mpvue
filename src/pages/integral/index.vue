@@ -3,7 +3,7 @@
 
     <div class="integral-top">
       <h1 class="myTitle">我的积分数</h1>
-      <div class="integral-font red">查看积分规则</div>
+      <a href="/pages/comment/main" class="integral-font red" >查看积分规则</a>
       <div class="number red">{{integral}}</div>
     </div>
 
@@ -22,6 +22,7 @@
 
 <script>
   import '@/assets/css/style.css';
+
   export default {
     data: {
       integral:0,

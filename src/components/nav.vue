@@ -8,10 +8,10 @@
             <li><a @click="navigateTo('/pages/classify/main')">
                 <img src="../../static/images/nav-classify.png" mode="widthFix" alt=""><br/>分类
             </a></li>
-            <li><a href="">
+            <li><a>
                 <img src="../../static/images/nav-news.png" mode="widthFix" alt=""><br/>消息
             </a></li>
-            <li><a href="/pages/mine/main">
+            <li><a @click="navigateTo('/pages/mine/main')">
                 <img src="../../static/images/nav-myself.png" mode="widthFix" alt=""><br/>我的
             </a></li>
         </ul>
