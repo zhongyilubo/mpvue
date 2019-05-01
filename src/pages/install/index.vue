@@ -19,10 +19,8 @@
   import '@/assets/css/install.css';
   export default {
     data: {
-      box1: '123456',
-      return{
         activeClass: -1, // 0为默认选择第一个，-1为不选择
-      }
+        box1: '123456',
     },
     mounted(){
       this.changebut()
@@ -53,9 +51,6 @@
         }else if(_this.message === 1){
 
         }*/
-        getItme(index){
-          this.activeClass = index;  // 把当前点击元素的index，赋值给activeClass
-        }
       }
 
     }
