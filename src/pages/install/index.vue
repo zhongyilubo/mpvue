@@ -1,10 +1,10 @@
 <template>
   <div>
     <ul class="install-list">
-      <li class="change"><!--消息通知-->{{box1}}
+      <li class="change">消息通知
         <div>
           <!-- <span class="open"></span> v-bind:class="(_this.box1 === 1)? 'open':' close ' " -->
-          <span :class="activeClass == index ? 'open':''" v-for="(item,index) in itemList" :key="index" @click="getItem(index)"></span>
+          <span :class="isopen ? 'open':''"  @click="changestatus"></span>
 
 
         </div>
@@ -19,8 +19,8 @@
   import '@/assets/css/install.css';
   export default {
     data: {
-        activeClass: -1, // 0为默认选择第一个，-1为不选择
-        box1: '123456',
+      activeClass: -1, // 0为默认选择第一个，-1为不选择
+      isopen: 0,
     },
     mounted(){
       this.changebut()
@@ -36,6 +36,23 @@
         //console.log(res.message)
         })
       },
+      changestatus(){
+        var _this = this;
+        var yyy = _this.isopen;
+        if(yyy == 0){
+          yyy = 1
+        }else{
+          yyy=0
+        }
+        _this.$net.post({
+          url:'message/change',
+          data:{
+            type:yyy
+          }
+        }).then(res =>{
+          _this.isopen = yyy;
+        })
+      },
       changebut(){
         var _this = this;
             _this.$net.post({
@@ -43,14 +60,9 @@
               data:{
               }
             }).then(res =>{
-              _this.box1 = res.data.type;
+              _this.isopen = res.data.type;
             })
           console.log(  )
-        /*if(_this.message === 0){
-              $('.change>span').className('red')
-        }else if(_this.message === 1){
-
-        }*/
       }
 
     }
