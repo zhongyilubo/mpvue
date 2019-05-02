@@ -10,7 +10,7 @@
         </div>
       </li>
       <li @click='qingchu'>清除缓存</li>
-      <li>退出登录</li>
+      <li @click='logout'>退出登录</li>
     </ul>
   </div>
 </template>
@@ -26,6 +26,11 @@
       this.changebut()
     },
     methods: {
+        logout(){
+            wx.redirectTo({
+                url: '/pages/lianxi/main'
+            })
+        },
       qingchu(){
         var _this = this;
         _this.$net.post({
