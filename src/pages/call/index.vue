@@ -39,6 +39,7 @@
       },
       submit(){
         var _this = this;
+
         _this.$net.post({
           url:'question',
           data:{
@@ -47,12 +48,21 @@
             content:_this.user.content
           }
         }).then(res => {
-          //_this.tel = res.data.user
-          wx.showToast({
-            title: '提交成功',
-            icon: 'success',
-            duration: 2000
-          })
+          if(!res.status){
+            wx.showToast({
+              title: res.info,
+              icon: '',
+              duration: 2000
+            })
+          }else{
+            wx.showToast({
+              title: '提交成功',
+              icon: 'success',
+              duration: 2000
+            })
+
+          }
+
         })
       }
 
