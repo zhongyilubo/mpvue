@@ -39,7 +39,6 @@
       },
       submit(){
         var _this = this;
-
         _this.$net.post({
           url:'question',
           data:{
@@ -51,7 +50,7 @@
           if(!res.status){
             wx.showToast({
               title: res.info,
-              icon: '',
+              icon: 'false',
               duration: 2000
             })
           }else{
@@ -60,7 +59,11 @@
               icon: 'success',
               duration: 2000
             })
-
+            _this.user = {
+              name:'',
+              call:'',
+              content:''
+            }
           }
 
         })
