@@ -48,6 +48,11 @@
           }
         }).then(res => {
           //_this.tel = res.data.user
+          wx.showToast({
+            title: '提交成功',
+            icon: 'success',
+            duration: 2000
+          })
         })
       }
 

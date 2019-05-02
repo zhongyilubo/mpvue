@@ -34,6 +34,11 @@
         }).then(res =>{
           _this.qingchu.value = res.data.zhuanfa;
         //console.log(res.message)
+          wx.showToast({
+            title: '成功',
+            icon: 'success',
+            duration: 2000
+          })
         })
       },
       changestatus(){
