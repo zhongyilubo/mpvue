@@ -8,7 +8,7 @@
             <li><a @click="navigateTo('/pages/classify/main')">
                 <img src="../../static/images/nav-classify.png" mode="widthFix" alt=""><br/>分类
             </a></li>
-            <li><a>
+            <li><a @click="navigateTo('/pages/message-list/main')">
                 <img src="../../static/images/nav-news.png" mode="widthFix" alt=""><br/>消息
             </a></li>
             <li><a @click="navigateTo('/pages/mine/main')">
