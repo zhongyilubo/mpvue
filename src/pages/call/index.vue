@@ -47,12 +47,25 @@
             content:_this.user.content
           }
         }).then(res => {
-          //_this.tel = res.data.user
-          wx.showToast({
-            title: '提交成功',
-            icon: 'success',
-            duration: 2000
-          })
+          if(!res.status){
+            wx.showToast({
+              title: res.info,
+              icon: 'false',
+              duration: 2000
+            })
+          }else{
+            wx.showToast({
+              title: '提交成功',
+              icon: 'success',
+              duration: 2000
+            })
+            _this.user = {
+              name:'',
+              call:'',
+              content:''
+            }
+          }
+
         })
       }
 
