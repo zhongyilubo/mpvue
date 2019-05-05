@@ -3,6 +3,8 @@
     "pages/index/main",
     "pages/lianxi/main",
     "pages/logs/main",
+    "pages/shop/main",
+    "pages/goods/main",
     "pages/counter/main",
     "pages/video/main",
     "pages/comment/main",

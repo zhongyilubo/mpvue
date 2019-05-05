@@ -2,7 +2,7 @@
   <div class="gray-back">
     <ul class="myContainer2 classify">
       <!--<li class="red-back">器械类</li>-->
-      <li v-for="(item, index) in category" :index="index" :key="key">{{item.name}}</li>
+      <li v-for="(item, index) in category" :index="index" :key="key" @click="togoods(item.id)">{{item.name}}</li>
     </ul>
   </div>
 
@@ -25,9 +25,11 @@
         })
     },
     methods: {
-      dddd(){
-        this.message = 'asdfsadfsdaf'
-      }
+        togoods(id){
+            wx.navigateTo({
+                url: ''
+            })
+        }
     }
   }
 </script>

@@ -21,7 +21,7 @@
         <img src="../../../static/images/mine-bp.png" alt="" mode="widthFix" style="width: 39rpx; height: 43rpx">
         我的积分
       </li>
-      <li>
+      <li @click="navigateTo('/pages/shop/main')">
         <img src="../../../static/images/mine-mall.png" alt="" mode="widthFix" style="width: 39rpx; height: 43rpx">
         我的商城
       </li>

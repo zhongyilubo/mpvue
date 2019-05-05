@@ -32,6 +32,9 @@
 .change .open{
   margin-left: 40%;
 }
+.bggray{
+  background-color: #ccc !important;
+}
 /*-------------------------------*/
 .mine-head{
   height: 200rpx;

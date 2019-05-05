@@ -2,7 +2,7 @@
   <div>
     <ul class="install-list">
       <li class="change">消息通知
-        <div>
+        <div :class="isopen ? '':'bggray'">
           <!-- <span class="open"></span> v-bind:class="(_this.box1 === 1)? 'open':' close ' " -->
           <span :class="isopen ? 'open':''"  @click="changestatus"></span>
 
