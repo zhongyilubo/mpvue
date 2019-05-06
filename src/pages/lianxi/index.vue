@@ -3,8 +3,8 @@
     <button class="authlogin" open-type="getUserInfo" @getuserinfo="bindGetUserInfo" v-if="getusershow"> 获取头像昵称 </button>
     <div class="myContainer">
       <!-- 搜索 -->
-      <div>
-        <input class="inp-search" type="text">
+      <div @click="tosearch">
+        <div class="inp-search" type="text"></div>
       </div>
       <!-- banner -->
       <div class="banner">
@@ -114,6 +114,11 @@
                 //用户按了拒绝按钮
                 console.log('用户按了拒绝按钮')
             }
+        },
+        tosearch(){
+            wx.navigateTo({
+                url: '/pages/search/main'
+            });
         }
     }
   }

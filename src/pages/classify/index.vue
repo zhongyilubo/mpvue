@@ -1,5 +1,5 @@
 <template>
-  <div class="gray-back">
+  <div>
     <ul class="myContainer2 classify">
       <!--<li class="red-back">器械类</li>-->
       <li v-for="(item, index) in category" :index="index" :key="key" @click="togoods(item.id)">{{item.name}}</li>
@@ -27,7 +27,7 @@
     methods: {
         togoods(id){
             wx.navigateTo({
-                url: ''
+                url: '/pages/goods/main?cid='+id
             })
         }
     }

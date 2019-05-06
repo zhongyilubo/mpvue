@@ -2,7 +2,7 @@
   <div>
 
     <scroll-view class="buy-scroll" scroll-x="true" >
-        &nbsp;&nbsp;<li data-id="0" @click="getcategory">全部购买</li>
+        &nbsp;&nbsp;<li data-id="0" @click="getcategory">全部分类</li>
         <li v-for="(item, index) in category" :index="index" :key="key" @click="getcategory" :data-id="item.id">{{item.name}}</li>
     </scroll-view>
 
@@ -41,13 +41,17 @@
   import '@/assets/css/style.css';
   export default {
     data: {
+      cid:0,
+      key:'',
       category: [],
       buyvideo:[]
     },
     mounted(){
+      this.cid = this.getQuery().cid;//接收这个参数 jq mpvue接收的方式不一样
+      this.key = this.getQuery().key;//接收这个参数 jq mpvue接收的方式不一样
       this.buylist();
-      this.buyli();
-      },
+      this.buyli(this.cid,this.key);
+    },
     methods: {
       buylist(){
         var _this = this;
@@ -58,18 +62,25 @@
           _this.category = res.data;
         })
       },
-      buyli(cid = 0){
+      buyli(cid = 0,key = ''){
         var _this = this;
         _this.$net.post({
-          url: 'buy',
-          data: {cid:cid}
+          url: 'goods',
+          data: {cid:cid,key:key}
         }).then(res => {
           _this.buyvideo = res.data;
         })
       },
       getcategory(e){
           this.buyli(e.currentTarget.dataset.id)
-      }
+      },
+        getQuery() {
+            /* 获取当前路由栈数组 */
+            const pages = getCurrentPages()
+            const currentPage = pages[pages.length - 1]
+            const options = currentPage.options
+            return options
+        }
     }
   }
 </script>

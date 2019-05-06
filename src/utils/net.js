@@ -1,4 +1,4 @@
-const host = 'http://api.qq.im/'
+const host = 'https://api.zhongyi108.com/'
 
 function request (url, method, data = {},sign = true) {
     wx.showLoading({
