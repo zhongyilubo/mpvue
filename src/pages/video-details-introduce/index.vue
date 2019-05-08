@@ -167,7 +167,10 @@
         var shareObj = {
             title: that.title,
             path:'/pages/lianxi/main',
-            imageUrl: that.cover
+            imageUrl: that.cover,
+            success(){
+                console.log(11232);
+            },
         };
         return shareObj;
     }
