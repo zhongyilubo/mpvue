@@ -12,28 +12,28 @@
           </div>
       </div>
     </div>
-    <ul class="install-list">
-      <li @click="navigateTo('/pages/buy/main')">
-        <img src="../../../static/images/mine-buy.png" alt="" mode="widthFix" style="width: 39rpx; height: 43rpx">
-        我的购买
-      </li>
-      <li @click="navigateTo('/pages/integral/main')">
-        <img src="../../../static/images/mine-bp.png" alt="" mode="widthFix" style="width: 39rpx; height: 43rpx">
-        我的积分
-      </li>
-      <li @click="navigateTo('/pages/shop/main')">
-        <img src="../../../static/images/mine-mall.png" alt="" mode="widthFix" style="width: 39rpx; height: 43rpx">
-        我的商城
-      </li>
-      <li @click="navigateTo('/pages/call/main')">
-        <img src="../../../static/images/mine-call.png" alt="" mode="widthFix" style="width: 39rpx; height: 43rpx">
-        联系客服
-      </li>
-      <li @click="navigateTo('/pages/install/main')">
-        <img src="../../../static/images/mine-install.png" alt="" mode="widthFix" style="width: 39rpx; height: 43rpx">
-        我的设置
-      </li>
-    </ul>
+      <ul class="install-list">
+        <li @click="navigateTo('/pages/buy/main')">
+          <img src="../../../static/images/mine-buy.png" alt="" mode="widthFix" style="width: 39rpx; height: 43rpx">
+          我的购买
+        </li>
+        <li @click="navigateTo('/pages/integral/main')">
+          <img src="../../../static/images/mine-bp.png" alt="" mode="widthFix" style="width: 39rpx; height: 43rpx">
+          我的积分
+        </li>
+        <li @click="navigateTo('/pages/shop/main')">
+          <img src="../../../static/images/mine-mall.png" alt="" mode="widthFix" style="width: 39rpx; height: 43rpx">
+          我的商城
+        </li>
+        <li @click="navigateTo('/pages/call/main')">
+          <img src="../../../static/images/mine-call.png" alt="" mode="widthFix" style="width: 39rpx; height: 43rpx">
+          联系客服
+        </li>
+        <li @click="navigateTo('/pages/install/main')">
+          <img src="../../../static/images/mine-install.png" alt="" mode="widthFix" style="width: 39rpx; height: 43rpx">
+          我的设置
+        </li>
+      </ul>
   </div>
 </template>
 

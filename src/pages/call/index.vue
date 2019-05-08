@@ -1,5 +1,5 @@
 <template>
-  <div class="myContainer2">
+  <div class="myContainer2 callme">
     <h1 class="myTitle">姓名</h1>
     <input v-model="user.name" type="text" placeholder="请输入姓名">
     <h1 class="myTitle">联系方式</h1>

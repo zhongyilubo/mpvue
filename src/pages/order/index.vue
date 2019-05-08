@@ -3,11 +3,10 @@
     <div class="myContainer">
 
       <!-- 最新视频 -->
-      <h1 class="myTitle">最新视频</h1>
-      <p style="margin-bottom: 30rpx">共搜到<span class="red">3</span>条结果</p>
+      <h1 class="myTitle">购买内容</h1>
       <ul class="zt-box zt-box-img">
         <li>
-          <span><img src="../../../../mpvue/static/images/class-img1.png" alt=""></span>
+          <span><img src="../../../../mpvue/static/images/class-img1.png" alt="" ></span>
         </li>
         <li>
           <p>著名中医教你如何正确的拔罐子</p>
@@ -27,23 +26,15 @@
       </ul>
 
     </div>
+
     <div class="h130"></div>
-    <ul class="nav">
-      <li><a href="">
-        <img src="../../../../mpvue/static/images/nav-index.png" mode="widthFix" alt=""><br/>首页
-      </a></li>
-      <li><a href="">
-          <img src="../../../../mpvue/static/images/nav-classify.png" mode="widthFix" alt=""><br/>分类
-       </a></li>
-      <li><a href="">
-        <img src="../../../../mpvue/static/images/nav-news.png" mode="widthFix" alt=""><br/>消息
-      </a></li>
-      <li><a href="">
-        <img src="../../../../mpvue/static/images/nav-myself.png" mode="widthFix" alt=""><br/>我的
-      </a></li>
-    </ul>
+    <dl class="weixin">
+      <dt>共计：￥<span>50.00</span></dt>
+      <dd>去支付</dd>
+    </dl>
 
   </div>
+
 </template>
 
 <script>

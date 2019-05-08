@@ -16,8 +16,9 @@
 }
 
 .classify li:hover{
-  background: #D11208;
-  color: #fff;
+  background: #d11208;
+  color:#fff;
+  border: none;
 }
 
 

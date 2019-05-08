@@ -34,12 +34,15 @@
 
       <!-- 最新视频 -->
       <h1 class="myTitle">最新视频</h1>
-      <ul class="zt-box two-line" v-for="(item, index) in news" :index="index" :key="key" @click="togoods(item)">
+      <ul class="zt-box zt-box-img two-line" v-for="(item, index) in news" :index="index" :key="key" @click="togoods(item)"><!--  two-line -->
         <li>
-          <span><img :src="item.cover" alt="" mode="widthFix"></span>
+          <span><img :src="item.cover" alt=""></span>
         </li>
         <li>
           <p>{{item.name}}</p>
+          <dl class="zt-money gray">
+            <dd><span>{{item.number}}</span>次</dd>
+          </dl>
           <dl class="zt-money gray">
             <dt>{{item.teacher}}</dt>
             <dd><span>{{item.number}}</span>次</dd>

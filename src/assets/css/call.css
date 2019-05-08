@@ -2,18 +2,20 @@
 
 /* 联系我们 */
 .myContainer2 input{
-    width:100%;
+    width:94%;
     height: 76rpx;
     text-indent: 10rpx;
     background: #eee;
     border:1px solid #dedede;
+    padding:0 3% ;
 }
 .myContainer2 h1{
     margin-top: 30rpx;
     margin-bottom: 20rpx;
 }
 .myContainer2 textarea{
-    width: 100%;
+    width: 90%;
+    padding:20rpx 3% ;
     background: #eee;
     border:1px solid #dedede;
 }

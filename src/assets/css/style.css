@@ -59,6 +59,7 @@ p{ font-size: 30rpx; color: #333;}
    -webkit-line-clamp: 1;
  }
 .zt-box.two-line p{
+    height: 80rpx;
   overflow: hidden;
   display: -webkit-box;
   text-overflow: ellipsis;
@@ -199,6 +200,51 @@ p{ font-size: 30rpx; color: #333;}
   top: 0rpx;
   font-size:100rpx;
 }
+
+/* 底部导航 */
+
+.weixin{
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    height: 130rpx;
+    font-size: 38rpx;
+    background: #f1f1f1;
+    line-height: 130rpx;
+}
+.weixin dt{
+    width: 60%;
+    color:#404447;
+    padding-left: 5%;
+    float: left;
+}
+.weixin dd{
+    width: 35%;
+    text-align: center;
+    color: #fff;
+    background: #D11208;
+    float: right;
+}
+
+.zt-box-img li span img{ height:226rpx;}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

@@ -39,7 +39,7 @@
 .mine-head{
   height: 200rpx;
   background: #fff;
-  border-bottom: 1px solid red;
+  border-bottom: 15px solid #e6e6e6;
 }
 .mine-head-img{
   margin:20rpx;
