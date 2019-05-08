@@ -25,7 +25,7 @@
           <span><img :src="item.cover" alt="" mode="widthFix" width="100%" ></span>
           <p>{{item.name}}</p>
           <dl class="zt-money">
-            <dt class="red">￥<span>{{item.price}}</span></dt>
+            <dt class="red"><span>{{item.pay_view}}</span></dt>
             <dd class="gray">{{item.teacher}}</dd>
           </dl>
         </li>
@@ -34,7 +34,7 @@
 
       <!-- 最新视频 -->
       <h1 class="myTitle">最新视频</h1>
-      <ul class="zt-box two-line" v-for="(item, index) in news" :index="index" :key="key">
+      <ul class="zt-box two-line" v-for="(item, index) in news" :index="index" :key="key" @click="togoods(item)">
         <li>
           <span><img :src="item.cover" alt="" mode="widthFix"></span>
         </li>
@@ -45,7 +45,7 @@
             <dd><span>{{item.number}}</span>次</dd>
           </dl>
           <dl class="zt-money red">
-            <dt>￥<span>{{item.price}}</span></dt>
+            <dt><span>{{item.pay_view}}</span></dt>
             <dd>{{item.type_name}}</dd>
           </dl>
         </li>
@@ -118,6 +118,11 @@
         tosearch(){
             wx.navigateTo({
                 url: '/pages/search/main'
+            });
+        },
+        togoods(obj){
+            wx.navigateTo({
+                url: '/pages/video-details-introduce/main?id='+obj.id
             });
         }
     }
