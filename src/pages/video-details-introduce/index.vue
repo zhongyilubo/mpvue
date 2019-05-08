@@ -10,7 +10,7 @@
           <div class="zt-money gray">{{teacher}} <span class="red display-inline ml-10">{{type_name}}</span></div>
           <dl class="zt-money gray">
             <dt class="kuan"><span>{{number}}</span>次播放<span>{{date}}</span> <span>{{timer}}</span></dt>
-            <dd class="pay">{{pay_name}}</dd>
+            <dd class="pay" @click="topay">{{pay_name}}</dd>
             <dd class="red">{{pay_view}}</dd>
           </dl>
       </div>
@@ -81,6 +81,7 @@
       date: '',
       timer: '',
       intro: '',
+      pay: 2,
       pay_name: '',
       pay_view: '',
       sons: '',
@@ -111,6 +112,7 @@
             _this.timer = res.data.timer;
             _this.video = res.data.video;
             _this.intro = res.data.intro;
+            _this.pay = res.data.pay;
             _this.pay_name = res.data.pay_name;
             _this.pay_view = res.data.pay_view;
             _this.sons = res.data.sons;
@@ -129,6 +131,11 @@
 
     },
     methods: {
+      topay(){
+          if(this.pay != 1){
+              this.startrun();
+          }
+      },
       getQuery() {
           /* 获取当前路由栈数组 */
           const pages = getCurrentPages()
@@ -145,15 +152,19 @@
           this.startrun();
       },
       startrun(){
+          var _this = this;
           //判断分享或支付
-          if(!this.ispay || !this.isshare){
+          if(!this.ispay || (!this.isshare && _this.pay == 1)){
               this.videoCtx.pause();
               wx.showModal({
                   title: '提示',
                   content: !this.ispay ? '尚未购买确定购买吗':'需分享后观看',
                   success(res) {
                       if (res.confirm) {
-                          console.log('用户点击确定')
+                          _this.pay != 1 && wx.navigateTo({
+                              url: '/pages/order/main?id='+_this.id
+                          })
+
                       } else if (res.cancel) {
                           console.log('用户点击取消')
                       }
@@ -164,6 +175,12 @@
     },
     onShareAppMessage(options){
         var that = this;
+        that.$net.post({
+            url: 'share/'+that.id,
+            data: {}
+        }).then(res => {
+            that.isshare = 1;
+        })
         var shareObj = {
             title: that.title,
             path:'/pages/lianxi/main',
