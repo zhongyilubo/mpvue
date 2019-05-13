@@ -41,12 +41,28 @@
   import '@/assets/css/style.css';
   export default {
     data: {
-      message: 'Hello Vue!'
+        id: 0
+    },
+    mounted(){
+      var _this = this;
+
+      this.id = this.getQuery().id;//接收这个参数 jq mpvue接收的方式不一样
+
+      _this.$net.post({
+          url: 'payinfo/'+_this.id,
+          data: {}
+      }).then(res => {
+
+      })
     },
     methods: {
-      dddd(){
-        this.message = 'asdfsadfsdaf'
-      }
+        getQuery() {
+            /* 获取当前路由栈数组 */
+            const pages = getCurrentPages()
+            const currentPage = pages[pages.length - 1]
+            const options = currentPage.options
+            return options
+        },
     }
   }
 </script>

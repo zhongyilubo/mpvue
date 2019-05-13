@@ -7,7 +7,7 @@
 
       <div class="mb-25">
           <h1 class="myTitle">{{name}}</h1>
-          <div class="zt-money gray">{{teacher}} <span class="red display-inline ml-10">{{type_name}}</span></div>
+          <div class="zt-money gray">{{teacher}}<span class="red display-inline ml-10">{{type_name}}</span></div>
           <dl class="zt-money gray">
             <dt class="kuan"><span>{{number}}</span>次播放<span>{{date}}</span> <span>{{timer}}</span></dt>
             <dd class="pay" @click="topay">{{pay_name}}</dd>
@@ -144,6 +144,26 @@
           return options
       },
       tosons(item){
+
+          var _this = this;
+          //判断分享或支付
+          if(!this.ispay || (!this.isshare && _this.pay == 1)){
+              this.videoCtx.pause();
+              return wx.showModal({
+                  title: '提示',
+                  content: !this.ispay ? '尚未购买确定购买吗':'需分享后观看',
+                  success(res) {
+                      if (res.confirm) {
+                          _this.pay != 1 && wx.navigateTo({
+                              url: '/pages/order/main?id='+_this.id
+                          })
+
+                      } else if (res.cancel) {
+                          console.log('用户点击取消')
+                      }
+                  }
+              })
+          }
           wx.navigateTo({
               url: '/pages/video-details/main?id='+item.id
           })
