@@ -147,7 +147,7 @@
 
           var _this = this;
           //判断分享或支付
-          if(!this.ispay || (!this.isshare && _this.pay == 1)){
+          if(!_this.ispay || (!_this.isshare && _this.pay == 1)){
               this.videoCtx.pause();
               return wx.showModal({
                   title: '提示',
@@ -174,7 +174,7 @@
       startrun(){
           var _this = this;
           //判断分享或支付
-          if(!this.ispay || (!this.isshare && _this.pay == 1)){
+          if(!_this.ispay || (!_this.isshare && _this.pay == 1)){
               this.videoCtx.pause();
               wx.showModal({
                   title: '提示',

@@ -100,7 +100,29 @@
                 url: 'pay/'+_this.id,
                 data: {}
             }).then(res => {
+                if(res.status == 0){
+                    return wx.showToast({
+                        title: res.info,
+                        icon: 'none',
+                        duration: 2000
+                    })
+                }
 
+                wx.requestPayment({
+                    timeStamp: res.timeStamp.toString(),
+                    nonceStr: res.nonceStr,
+                    package: res.package,
+                    signType: res.signType,
+                    paySign: res.paySign,
+                    success: function(res) {
+                        console.log('付款成功')
+                        console.log(res)
+                    },
+                    fail: function(res) {
+                        console.log('付款失败')
+                        console.log(res)
+                    }
+                })
             })
         }
     }
