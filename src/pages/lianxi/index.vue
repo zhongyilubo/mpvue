@@ -21,7 +21,7 @@
 
       <ul class="zt-box one-line">
 
-        <li v-for="(item, index) in hot" :index="index" :key="key">
+        <li v-for="(item, index) in hot" :index="index" :key="key" @click="togoods(item)">
           <span><img :src="item.cover" alt="" mode="widthFix" width="100%" ></span>
           <p>{{item.name}}</p>
           <dl class="zt-money">

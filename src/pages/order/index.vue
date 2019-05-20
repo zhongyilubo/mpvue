@@ -108,21 +108,45 @@
                     })
                 }
 
-                wx.requestPayment({
-                    timeStamp: res.timeStamp.toString(),
-                    nonceStr: res.nonceStr,
-                    package: res.package,
-                    signType: res.signType,
-                    paySign: res.paySign,
-                    success: function(res) {
-                        console.log('付款成功')
-                        console.log(res)
-                    },
-                    fail: function(res) {
-                        console.log('付款失败')
-                        console.log(res)
-                    }
-                })
+                if(_this.pay == 2){
+                    wx.requestPayment({
+                        timeStamp: res.timeStamp.toString(),
+                        nonceStr: res.nonceStr,
+                        package: res.package,
+                        signType: res.signType,
+                        paySign: res.paySign,
+                        success: function(res) {
+                            wx.showToast({
+                                title: '支付成功',
+                                icon: 'none',
+                                duration: 2000
+                            })
+                            setTimeout(function () {
+                                wx.navigateTo({
+                                    url: '/pages/buy/main'
+                                })
+                            },1000);
+                            console.log(res)
+                        },
+                        fail: function(res) {
+                            console.log('付款失败')
+                            console.log(res)
+                        }
+                    })
+                }else{
+
+                    wx.showToast({
+                        title: '支付成功',
+                        icon: 'none',
+                        duration: 2000
+                    })
+                    setTimeout(function () {
+                        wx.navigateTo({
+                            url: '/pages/buy/main'
+                        })
+                    },1000);
+                }
+
             })
         }
     }

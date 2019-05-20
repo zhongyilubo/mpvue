@@ -8,7 +8,7 @@
 
     <div class="myContainer">
       <ul class="zt-box one-line mt-30">
-        <li v-for="(item, index) in buyvideo" :index="index" :key="key">
+        <li v-for="(item, index) in buyvideo" :index="index" :key="key" @click="togoods(item)">
           <span><img :src="item.cover" alt="" mode="widthFix" width="100%" ></span>
           <p>{{item.name}}</p>
           <dl class="zt-money">
@@ -69,7 +69,12 @@
       },
       getcategory(e){
           this.buyli(e.currentTarget.dataset.id)
-      }
+      },
+        togoods(obj){
+            wx.navigateTo({
+                url: '/pages/video-details-introduce/main?id='+obj.id
+            });
+        }
     }
   }
 </script>

@@ -135,6 +135,14 @@
           if(this.pay != 1){
               this.startrun();
           }
+
+          if(this.pay != 1 && this.ispay == 1){
+              return wx.showToast({
+                  title: '已购买',
+                  icon: 'none',
+                  duration: 2000
+              })
+          }
       },
       getQuery() {
           /* 获取当前路由栈数组 */
