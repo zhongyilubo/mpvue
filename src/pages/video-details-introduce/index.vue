@@ -118,6 +118,7 @@
             _this.pay_name = res.data.pay_name;
             _this.pay_view = res.data.pay_view;
             _this.sons = res.data.sons;
+            _this.iosword = res.url.ios;
         })
 
         this.videoCtx = wx.createVideoContext('myvideo', this)
