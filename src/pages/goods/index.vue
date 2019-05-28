@@ -12,7 +12,7 @@
           <span><img :src="item.cover" alt="" mode="widthFix" width="100%" ></span>
           <p>{{item.name}}</p>
           <dl class="zt-money">
-            <dt class="red">￥<span>{{item.price}}</span></dt>
+            <dt class="red" v-if="!isios">￥<span>{{item.price}}</span></dt>
             <dd class="gray">{{item.teacher}}</dd>
           </dl>
         </li>
@@ -44,13 +44,25 @@
       cid:0,
       key:'',
       category: [],
-      buyvideo:[]
+      buyvideo:[],
+        isios: 1
     },
     mounted(){
+      var _this = this;
       this.cid = this.getQuery().cid;//接收这个参数 jq mpvue接收的方式不一样
       this.key = this.getQuery().key;//接收这个参数 jq mpvue接收的方式不一样
       this.buylist();
       this.buyli(this.cid,this.key);
+
+        wx.getSystemInfo({
+            success: function (res) {
+                if(res.platform == 'ios'){
+                    _this.isios = 1;
+                }else{
+                    _this.isios = 0;
+                }
+            }
+        });
     },
     methods: {
       buylist(){

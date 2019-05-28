@@ -13,9 +13,13 @@
       </div>
     </div>
       <ul class="install-list">
-        <li @click="navigateTo('/pages/buy/main')">
+        <li v-if="!isios" @click="navigateTo('/pages/buy/main')">
           <img src="../../../static/images/mine-buy.png" alt="" mode="widthFix" style="width: 39rpx; height: 43rpx">
           我的购买
+        </li>
+        <li v-if="isios" @click="navigateTo('/pages/buy/main')">
+          <img src="../../../static/images/mine-buy.png" alt="" mode="widthFix" style="width: 39rpx; height: 43rpx">
+          我的收藏
         </li>
         <li @click="navigateTo('/pages/integral/main')">
           <img src="../../../static/images/mine-bp.png" alt="" mode="widthFix" style="width: 39rpx; height: 43rpx">
@@ -44,6 +48,7 @@
       message: 'Hello Vue!',
       userinfo : [],
       issign : 0,
+      isios: 1
     },
     mounted(){
         var _this = this;
@@ -55,6 +60,16 @@
         }).then(res => {
             _this.issign = res.data.issign;
         })
+
+        wx.getSystemInfo({
+            success: function (res) {
+                if(res.platform == 'ios'){
+                    _this.isios = 1;
+                }else{
+                    _this.isios = 0;
+                }
+            }
+        });
     },
     methods: {
         sign(){

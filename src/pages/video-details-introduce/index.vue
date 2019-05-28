@@ -10,8 +10,6 @@
           <div class="zt-money gray">{{teacher}}<span class="red display-inline ml-10">{{type_name}}</span></div>
           <dl class="zt-money gray">
             <dt class="kuan"><span>{{number}}</span>次播放<span>{{date}}</span> <span>{{timer}}</span></dt>
-            <dd class="pay" @click="topay">{{pay_name}}</dd>
-            <dd class="red">{{pay_view}}</dd>
           </dl>
       </div>
       <h1 class="myTitle mb-25 b-b">简介</h1>
@@ -26,7 +24,7 @@
         <li style="height: 100%;">
           <p>{{item.name}}</p>
           <dl class="zt-money gray" style="position: relative; bottom: 0;">
-            <dt>{{item.pay_view}}</dt>
+            <dt></dt>
             <dd><span>{{item.number}}</span>次</dd>
           </dl>
         </li>
@@ -159,12 +157,12 @@
               this.videoCtx.pause();
               return wx.showModal({
                   title: '提示',
-                  content: !this.ispay ? '尚未购买确定购买吗':'需分享后观看',
+                  content: !this.ispay ? '暂无权限观看，请联系客服':'需分享后观看',
                   success(res) {
                       if (res.confirm) {
-                          _this.pay != 1 && wx.navigateTo({
-                              url: '/pages/order/main?id='+_this.id
-                          })
+                          // _this.pay != 1 && wx.navigateTo({
+                          //     url: '/pages/order/main?id='+_this.id
+                          // })
 
                       } else if (res.cancel) {
                           console.log('用户点击取消')
@@ -186,12 +184,12 @@
               this.videoCtx.pause();
               wx.showModal({
                   title: '提示',
-                  content: !this.ispay ? '尚未购买确定购买吗':'需分享后观看',
+                  content: !this.ispay ? '暂无权限观看，请联系客服':'需分享后观看',
                   success(res) {
                       if (res.confirm) {
-                          _this.pay != 1 && wx.navigateTo({
-                              url: '/pages/order/main?id='+_this.id
-                          })
+                          // _this.pay != 1 && wx.navigateTo({
+                          //     url: '/pages/order/main?id='+_this.id
+                          // })
 
                       } else if (res.cancel) {
                           console.log('用户点击取消')

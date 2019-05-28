@@ -25,7 +25,7 @@
           <span><img :src="item.cover" alt="" mode="widthFix" width="100%" ></span>
           <p>{{item.name}}</p>
           <dl class="zt-money">
-            <dt class="red"><span>{{item.pay_view}}</span></dt>
+            <dt class="red"><span v-if="!isios">{{item.pay_view}}</span></dt>
             <dd class="gray">{{item.teacher}}</dd>
           </dl>
         </li>
@@ -48,7 +48,7 @@
             <dd><span>{{item.number}}</span>次</dd>
           </dl>
           <dl class="zt-money red">
-            <dt><span>{{item.pay_view}}</span></dt>
+            <dt><span v-if="!isios">{{item.pay_view}}</span></dt>
             <dd>{{item.type_name}}</dd>
           </dl>
         </li>
@@ -68,7 +68,8 @@
       news: [],
       message: 'Hello Vue!',
       getusershow:true,
-      userInfo: {}
+      userInfo: {},
+      isios: 1
     },
     components: {
         bottomnav
@@ -103,6 +104,16 @@
                 }
             }
         })
+
+        wx.getSystemInfo({
+            success: function (res) {
+                if(res.platform == 'ios'){
+                    _this.isios = 1;
+                }else{
+                    _this.isios = 0;
+                }
+            }
+        });
     },
     methods: {
         bindGetUserInfo(e) {

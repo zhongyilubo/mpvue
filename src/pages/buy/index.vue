@@ -2,7 +2,8 @@
   <div>
 
     <scroll-view class="buy-scroll" scroll-x="true" >
-        &nbsp;&nbsp;<li data-id="0" @click="getcategory">全部购买</li>
+        &nbsp;&nbsp;<li data-id="0" @click="getcategory" v-if="!isios">全部购买</li>
+        &nbsp;&nbsp;<li data-id="0" @click="getcategory" v-if="isios">全部收藏</li>
         <li v-for="(item, index) in category" :index="index" :key="key" @click="getcategory" :data-id="item.id">{{item.name}}</li>
     </scroll-view>
 
@@ -12,7 +13,7 @@
           <span><img :src="item.cover" alt="" mode="widthFix" width="100%" ></span>
           <p>{{item.name}}</p>
           <dl class="zt-money">
-            <dt class="red">￥<span>{{item.price}}</span></dt>
+            <dt class="red" v-if="!isios">￥<span>{{item.price}}</span></dt>
             <dd class="gray">{{item.teacher}}</dd>
           </dl>
         </li>
@@ -42,11 +43,22 @@
   export default {
     data: {
       category: [],
-      buyvideo:[]
+      buyvideo:[],
+        isios: 1
     },
     mounted(){
+      var _this = this;
       this.buylist();
       this.buyli();
+        wx.getSystemInfo({
+            success: function (res) {
+                if(res.platform == 'ios'){
+                    _this.isios = 1;
+                }else{
+                    _this.isios = 0;
+                }
+            }
+        });
       },
     methods: {
       buylist(){
