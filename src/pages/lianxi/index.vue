@@ -117,6 +117,8 @@
     },
     methods: {
         bindGetUserInfo(e) {
+            var _this = this;
+
             if (e.mp.detail.rawData){
                 //用户按了允许授权按钮
                 console.log('用户按了允许授权按钮')
@@ -124,6 +126,12 @@
                 this.getusershow = false;
                 this.userInfo = e.mp.detail.userInfo;
                 mpvue.setStorageSync('userInfo', e.mp.detail.userInfo)
+
+                _this.$net.post({
+                    url: 'saveuserinfo',
+                    data: e.mp.detail.userInfo
+                })
+
             } else {
                 //用户按了拒绝按钮
                 console.log('用户按了拒绝按钮')
