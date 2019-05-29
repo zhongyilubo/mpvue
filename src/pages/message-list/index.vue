@@ -18,6 +18,9 @@
         </dl>
       </li>-->
     </ul>
+    <div v-if="!messages_list.length">
+      <p style="text-align: center; line-height: 220rpx;">暂无消息</p>
+    </div>
   </div>
 </template>
 

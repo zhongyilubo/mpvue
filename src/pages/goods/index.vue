@@ -17,6 +17,9 @@
           </dl>
         </li>
       </ul>
+      <div v-if="!buyvideo.length">
+        <p style="text-align: center; line-height: 220rpx;">暂无内容</p>
+      </div>
     </div>
   </div>
 </template>
