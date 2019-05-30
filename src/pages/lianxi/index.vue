@@ -11,7 +11,7 @@
         <swiper class="swiper" indicator-dots="true" autoplay="true" style="height:100%;" interval="5000" duration="1000">
           <block v-for="(item, index) in banner" :index="index" :key="key">
             <swiper-item>
-              <image :src="item" class="slide-image" mode="aspectFill"/>
+              <image @click="tosonn" :data-index="urlid[index]" style="width:100%;" :src="item" class="slide-image" mode="aspectFill"/>
             </swiper-item>
           </block>
         </swiper>
@@ -64,6 +64,7 @@
   export default {
     data: {
       banner: [],
+      urlid: [],
       hot: [],
       news: [],
       message: 'Hello Vue!',
@@ -82,6 +83,7 @@
             data: {}
         }).then(res => {
             _this.banner = res.data.banner.image;
+            _this.urlid = res.data.banner.urlid;
             _this.hot = res.data.hot;
             _this.news = res.data.new;
         })
@@ -146,6 +148,14 @@
             wx.navigateTo({
                 url: '/pages/video-details-introduce/main?id='+obj.id
             });
+        },
+        tosonn(e){
+            var id = e.currentTarget.dataset.index;
+            if(id){
+                wx.navigateTo({
+                    url: '/pages/video-details-introduce/main?id='+id
+                });
+            }
         }
     }
   }
