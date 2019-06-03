@@ -10,6 +10,8 @@
   padding:35rpx 0;
   box-sizing:border-box;
   float: left;
+  border-radius: 8rpx;
+
 }
 .classify li:nth-child(2n){
   margin-right: 0;
@@ -19,6 +21,7 @@
   background: #d11208;
   color:#fff;
   border: none;
+  border-radius: 8rpx;
 }
 
 

@@ -41,7 +41,7 @@
         <li>
           <p>{{item.name}}</p>
           <dl class="zt-money gray">
-            <dd><span>{{item.number}}</span>次</dd>
+            <dd><span>{{item.date}}</span></dd>
           </dl>
           <dl class="zt-money gray">
             <dt>{{item.teacher}}</dt>
