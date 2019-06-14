@@ -71,6 +71,7 @@
 
   export default {
     data: {
+      isshareshow : false,
       id: 0,
       name: '',
       type_name: '',
@@ -170,9 +171,12 @@
           //判断分享或支付
           if(!_this.ispay || (!_this.isshare && _this.pay == 1)){
               this.videoCtx.pause();
+              if(this.ispay) {
+                  _this.isshareshow = true;
+              }
               return wx.showModal({
                   title: '提示',
-                  content: !this.ispay ? (this.isios? this.iosword :'尚未购买确定购买吗'):'需分享后观看',
+                  content: !this.ispay ? (this.isios? this.iosword :'尚未购买确定购买吗'):'需分享后观看,点击右上角 ●●● 分享',
                   success(res) {
                       if (res.confirm && !_this.isios) {
                           _this.pay != 1 && wx.navigateTo({
@@ -182,6 +186,8 @@
                       } else if (res.cancel) {
                           console.log('用户点击取消')
                       }
+                      _this.isshareshow = false;
+
                   }
               })
           }
@@ -197,9 +203,12 @@
           //判断分享或支付
           if(!_this.ispay || (!_this.isshare && _this.pay == 1)){
               this.videoCtx.pause();
+              if(this.ispay) {
+                  _this.isshareshow = true;
+              }
               wx.showModal({
                   title: '提示',
-                  content: !this.ispay ? (this.isios? this.iosword :'尚未购买确定购买吗'):'需分享后观看',
+                  content: !this.ispay ? (this.isios? this.iosword :'尚未购买确定购买吗'):'需分享后观看,点击右上角 ●●● 分享',
                   success(res) {
                       if (res.confirm && !_this.isios) {
                           _this.pay != 1 && wx.navigateTo({
@@ -209,6 +218,8 @@
                       } else if (res.cancel) {
                           console.log('用户点击取消')
                       }
+                      _this.isshareshow = false;
+
                   }
               })
           }

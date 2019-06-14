@@ -6,14 +6,24 @@
         <li v-for="(item, index) in category" :index="index" :key="key" @click="getcategory" :data-id="item.id">{{item.name}}</li>
     </scroll-view>
 
-    <div class="myContainer">
-      <ul class="zt-box one-line mt-30">
-        <li v-for="(item, index) in buyvideo" :index="index" :key="key" @click="togoods(item)">
-          <span><img :src="item.cover" alt="" mode="widthFix" width="100%" ></span>
+    <div class="myContainer" style="padding-top: 20px;">
+
+      <ul class="zt-box zt-box-img two-line" v-for="(item, index) in buyvideo" :index="index" :key="key" @click="togoods(item)"><!--  two-line -->
+        <li>
+          <span><img :src="item.cover" alt=""></span>
+        </li>
+        <li>
           <p>{{item.name}}</p>
-          <dl class="zt-money">
-            <dt class="red" v-if="!isios">￥<span>{{item.price}}</span></dt>
-            <dd class="gray">{{item.teacher}}</dd>
+          <dl class="zt-money gray">
+            <dd><span>{{item.date}}</span></dd>
+          </dl>
+          <dl class="zt-money gray">
+            <dt>{{item.teacher}}</dt>
+            <dd><span>{{item.number}}</span>次</dd>
+          </dl>
+          <dl class="zt-money red">
+            <dt><span v-if="!isios">{{item.pay_view}}</span></dt>
+            <dd>{{item.type_name}}</dd>
           </dl>
         </li>
       </ul>
