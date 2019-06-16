@@ -2,8 +2,32 @@
 
   <div>
     <div v-if="version==0">
-      13234234
-    </div>
+      <button class="authlogin" open-type="getUserInfo" @getuserinfo="bindGetUserInfo" v-if="getusershow"> 获取头像昵称 </button>
+      <div class="myContainer">
+
+
+        <ul class="zt-box zt-box-img two-line" v-for="(item, index) in join" :index="index" :key="key" @click="tojoin(item)"><!--  two-line -->
+          <li>
+            <span><img :src="item.cover" alt=""></span>
+          </li>
+          <li>
+            <p>{{item.name}}</p>
+            <dl class="zt-money gray">
+              <dd><span>{{item.date}}</span></dd>
+            </dl>
+            <dl class="zt-money gray">
+              <dt>{{item.teacher}}</dt>
+              <dd><span>{{item.number}}</span>人</dd>
+            </dl>
+            <dl class="zt-money red">
+              <dd>{{item.type_name}}</dd>
+            </dl>
+          </li>
+        </ul>
+
+
+      </div>
+      </div>
 
     <div v-if="version==1">
       <button class="authlogin" open-type="getUserInfo" @getuserinfo="bindGetUserInfo" v-if="getusershow"> 获取头像昵称 </button>
@@ -68,6 +92,7 @@
 
 <script>
   import '@/assets/css/style.css';
+  import '@/assets/css/extra.css';
   import bottomnav from '@/components/nav.vue';
   export default {
     data: {
@@ -79,6 +104,7 @@
       getusershow:true,
       userInfo: {},
       isios: 1,
+      join: null,
       version: null
     },
     components: {
@@ -96,6 +122,7 @@
             _this.hot = res.data.hot;
             _this.news = res.data.new;
             _this.version = res.data.version;
+            _this.join = res.data.join;
         })
 
         wx.getSetting({
@@ -166,6 +193,11 @@
                     url: '/pages/video-details-introduce/main?id='+id
                 });
             }
+        },
+        tojoin(obj){
+            wx.navigateTo({
+                url: '/pages/join/main?id='+obj.id
+            });
         }
     }
   }
