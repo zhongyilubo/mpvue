@@ -28,7 +28,7 @@
     methods: {
         logout(){
             wx.redirectTo({
-                url: '/pages/lianxi/main'
+                url: '/pages/index/main'
             })
         },
       qingchu(){

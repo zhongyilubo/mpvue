@@ -235,7 +235,7 @@
         })
         var shareObj = {
             title: that.title,
-            path:'/pages/lianxi/main',
+            path:'/pages/index/main',
             imageUrl: that.cover,
             success(){
                 console.log(11232);

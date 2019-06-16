@@ -2,7 +2,7 @@
     <div>
         <div class="h130"></div>
         <ul class="nav">
-            <li><a @click="rediectTo('/pages/lianxi/main')">
+            <li><a @click="rediectTo('/pages/index/main')">
                 <img src="../../static/images/nav-index.png" mode="widthFix" alt=""><br/>首页
             </a></li>
             <li><a @click="navigateTo('/pages/classify/main')">

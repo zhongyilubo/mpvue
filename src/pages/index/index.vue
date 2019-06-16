@@ -1,71 +1,173 @@
 <template>
+
   <div>
-
-    <a href="/pages/lianxi/main" class="counter">去首页</a>
-    <a href="/pages/video/main" class="counter">去最新视频</a>
-    <a href="/pages/order/main" class="counter">去最新视频2</a>
-    <a href="/pages/comment/main" class="counter">去评论</a>
-    <a href="/pages/call/main" class="counter">联系我们</a>
-    <a href="/pages/classify/main" class="counter">全部分类</a>
-    <a href="/pages/install/main" class="counter">设置</a>
-    <a href="/pages/mine/main" class="counter">我的</a>
-    <a href="/pages/buy/main" class="counter">我的购买</a>
-    <a href="/pages/video-details/main" class="counter">视频详情</a>
-    <a href="/pages/video-details-introduce/main" class="counter">视频详情带简介评论</a>
-    <a href="/pages/integral/main" class="counter">我的积分</a>
-    <a href="/pages/message/main" class="counter">消息</a>
-    <a href="/pages/message-list/main" class="counter">消息列表</a>
-
-    <div @click="getme">获取信息</div>
-
-    <div class="usermotto">
-      <div class="user-motto">
-        <card :text="motto"></card>
-      </div>
+    <div v-if="version==0">
+      13234234
     </div>
 
-    <form class="form-container">
-      <input type="text" class="form-control" :value="motto" placeholder="v-model" />
-      <input type="text" class="form-control" v-model="motto" placeholder="v-model" />
-      <input type="text" class="form-control" v-model.lazy="motto" placeholder="v-model.lazy" />
-    </form>
+    <div v-if="version==1">
+      <button class="authlogin" open-type="getUserInfo" @getuserinfo="bindGetUserInfo" v-if="getusershow"> 获取头像昵称 </button>
+      <div class="myContainer">
+        <!-- 搜索 -->
+        <div @click="tosearch">
+          <div class="inp-search" type="text"></div>
+        </div>
+        <!-- banner -->
+        <div class="banner">
+          <swiper class="swiper" indicator-dots="true" autoplay="true" style="height:100%;" interval="5000" duration="1000">
+            <block v-for="(item, index) in banner" :index="index" :key="key">
+              <swiper-item>
+                <image @click="tosonn" :data-index="urlid[index]" style="width:100%;" :src="item" class="slide-image" mode="aspectFill"/>
+              </swiper-item>
+            </block>
+          </swiper>
+        </div>
+        <!-- 热门推荐 -->
+        <h1 class="myTitle">热门推荐</h1>
 
+        <ul class="zt-box one-line">
+
+          <li v-for="(item, index) in hot" :index="index" :key="key" @click="togoods(item)">
+            <span><img :src="item.cover" alt="" mode="widthFix" width="100%" ></span>
+            <p>{{item.name}}</p>
+            <dl class="zt-money">
+              <dt class="red"><span v-if="!isios">{{item.pay_view}}</span></dt>
+              <dd class="gray">{{item.teacher}}</dd>
+            </dl>
+          </li>
+
+        </ul>
+
+        <!-- 最新视频 -->
+        <h1 class="myTitle">最新视频</h1>
+        <ul class="zt-box zt-box-img two-line" v-for="(item, index) in news" :index="index" :key="key" @click="togoods(item)"><!--  two-line -->
+          <li>
+            <span><img :src="item.cover" alt=""></span>
+          </li>
+          <li>
+            <p>{{item.name}}</p>
+            <dl class="zt-money gray">
+              <dd><span>{{item.date}}</span></dd>
+            </dl>
+            <dl class="zt-money gray">
+              <dt>{{item.teacher}}</dt>
+              <dd><span>{{item.number}}</span>次</dd>
+            </dl>
+            <dl class="zt-money red">
+              <dt><span v-if="!isios">{{item.pay_view}}</span></dt>
+              <dd>{{item.type_name}}</dd>
+            </dl>
+          </li>
+        </ul>
+      </div>
+      <bottomnav></bottomnav>
+
+    </div>
   </div>
 </template>
 
 <script>
-import card from '@/components/card'
-import '@/assets/css/test.css';
+  import '@/assets/css/style.css';
+  import bottomnav from '@/components/nav.vue';
+  export default {
+    data: {
+      banner: [],
+      urlid: [],
+      hot: [],
+      news: [],
+      message: 'Hello Vue!',
+      getusershow:true,
+      userInfo: {},
+      isios: 1,
+      version: null
+    },
+    components: {
+        bottomnav
+    },
+    mounted(){
+        var _this = this;
 
-export default {
-  data () {
-    return {
-      motto: 'Hello miniprograme',
-    }
-  },
-  components: {
-    card
-  },
-  created () {
-      let app = getApp()
-  },
-  methods: {
-      bindViewTap () {
-        const url = '../logs/main'
-        if (mpvuePlatform === 'wx') {
-          mpvue.switchTab({ url })
-        } else {
-          mpvue.navigateTo({ url })
+        _this.$net.post({
+            url: 'index',
+            data: {}
+        }).then(res => {
+            _this.banner = res.data.banner.image;
+            _this.urlid = res.data.banner.urlid;
+            _this.hot = res.data.hot;
+            _this.news = res.data.new;
+            _this.version = res.data.version;
+        })
+
+        wx.getSetting({
+            success: function(res){
+                if (res.authSetting['scope.userInfo']) {
+                    wx.getUserInfo({
+                        success: function(res) {
+                            console.log(res.userInfo)
+                            //用户已经授权过
+                            console.log('用户已经授权过')
+                            _this.getusershow = false;
+                            _this.userInfo = res.userInfo;
+                            mpvue.setStorageSync('userInfo', res.userInfo)
+                        }
+                    })
+                }else{
+                    console.log('用户还未授权过')
+                }
+            }
+        })
+
+        wx.getSystemInfo({
+            success: function (res) {
+                if(res.platform == 'ios'){
+                    _this.isios = 1;
+                }else{
+                    _this.isios = 0;
+                }
+            }
+        });
+    },
+    methods: {
+        bindGetUserInfo(e) {
+            var _this = this;
+
+            if (e.mp.detail.rawData){
+                //用户按了允许授权按钮
+                console.log('用户按了允许授权按钮')
+                console.log(e.mp.detail.userInfo);
+                this.getusershow = false;
+                this.userInfo = e.mp.detail.userInfo;
+                mpvue.setStorageSync('userInfo', e.mp.detail.userInfo)
+
+                _this.$net.post({
+                    url: 'saveuserinfo',
+                    data: e.mp.detail.userInfo
+                })
+
+            } else {
+                //用户按了拒绝按钮
+                console.log('用户按了拒绝按钮')
+            }
+        },
+        tosearch(){
+            wx.navigateTo({
+                url: '/pages/search/main'
+            });
+        },
+        togoods(obj){
+            wx.navigateTo({
+                url: '/pages/video-details-introduce/main?id='+obj.id
+            });
+        },
+        tosonn(e){
+            var id = e.currentTarget.dataset.index;
+            if(id){
+                wx.navigateTo({
+                    url: '/pages/video-details-introduce/main?id='+id
+                });
+            }
         }
-      },
-      getme(){
-          this.$net.post({
-              url: 'me',
-              data: {}
-          }).then(res => {
-              console.log('back');
-          })
-      },
+    }
   }
-}
+
 </script>

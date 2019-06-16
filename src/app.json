@@ -1,6 +1,6 @@
 {
   "pages": [
-    "pages/lianxi/main",
+    "pages/index/main",
     "pages/search/main",
     "pages/order/main",
     "pages/logs/main",
