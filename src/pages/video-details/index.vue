@@ -1,6 +1,10 @@
 <template>
   <div>
-    <div class="myContainer">
+
+    <div v-if="!version" style="text-align: center;">
+      <img src="/static/images/tippp.png">
+    </div>
+    <div class="myContainer" v-if="version">
 
       <!-- 最新视频 -->
       <video id="myvideo" class="details" :src="video" @timeupdate="videorun" @play="startrun" controls></video>
@@ -54,6 +58,7 @@
   export default {
       data: {
           id: 0,
+          version: null,
           name: '',
           type_name: '',
           type: '',
@@ -77,6 +82,7 @@
     },
     mounted(){
         var _this = this;
+        this.version = mpvue.getStorageSync('version') || null
 
         this.id = this.getQuery().id;//接收这个参数 jq mpvue接收的方式不一样
 

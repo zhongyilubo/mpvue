@@ -1,25 +1,30 @@
 <template>
   <div>
+    <div v-if="!version" style="text-align: center;">
+      <img src="/static/images/tippp.png">
+    </div>
 
-    <scroll-view class="buy-scroll" scroll-x="true" >
-        &nbsp;&nbsp;<li data-id="0" @click="getcategory" v-if="!isios">全部购买</li>
-        &nbsp;&nbsp;<li data-id="0" @click="getcategory" v-if="isios">全部收藏</li>
-        <li v-for="(item, index) in category" :index="index" :key="key" @click="getcategory" :data-id="item.id">{{item.name}}</li>
-    </scroll-view>
+    <div v-if="version">
+      <scroll-view class="buy-scroll" scroll-x="true" >
+          &nbsp;&nbsp;<li data-id="0" @click="getcategory" v-if="!isios">全部购买</li>
+          &nbsp;&nbsp;<li data-id="0" @click="getcategory" v-if="isios">全部收藏</li>
+          <li v-for="(item, index) in category" :index="index" :key="key" @click="getcategory" :data-id="item.id">{{item.name}}</li>
+      </scroll-view>
 
-    <div class="myContainer">
-      <ul class="zt-box one-line mt-30">
-        <li v-for="(item, index) in buyvideo" :index="index" :key="key" @click="togoods(item)">
-          <span><img :src="item.cover" alt="" mode="widthFix" width="100%" ></span>
-          <p>{{item.name}}</p>
-          <dl class="zt-money">
-            <dt class="red" v-if="!isios">￥<span>{{item.price}}</span></dt>
-            <dd class="gray">{{item.teacher}}</dd>
-          </dl>
-        </li>
-      </ul>
-      <div v-if="!buyvideo.length">
-        <p style="text-align: center; line-height: 220rpx;">暂无信息</p>
+      <div class="myContainer">
+        <ul class="zt-box one-line mt-30">
+          <li v-for="(item, index) in buyvideo" :index="index" :key="key" @click="togoods(item)">
+            <span><img :src="item.cover" alt="" mode="widthFix" width="100%" ></span>
+            <p>{{item.name}}</p>
+            <dl class="zt-money">
+              <dt class="red" v-if="!isios">￥<span>{{item.price}}</span></dt>
+              <dd class="gray">{{item.teacher}}</dd>
+            </dl>
+          </li>
+        </ul>
+        <div v-if="!buyvideo.length">
+          <p style="text-align: center; line-height: 220rpx;">暂无信息</p>
+        </div>
       </div>
     </div>
   </div>
@@ -47,11 +52,16 @@
     data: {
       category: [],
       buyvideo:[],
-        isios: 1
+        isios: 1,
+        version: null
+
+
     },
     mounted(){
       var _this = this;
-      this.buylist();
+        this.version = mpvue.getStorageSync('version') || null
+
+        this.buylist();
       this.buyli();
         wx.getSystemInfo({
             success: function (res) {

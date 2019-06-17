@@ -1,6 +1,9 @@
 <template>
     <div>
-        <div class="myContainer">
+        <div v-if="!version" style="text-align: center;">
+            <img src="/static/images/tippp.png">
+        </div>
+        <div class="myContainer" v-if="version">
             <!-- 搜索 -->
             <div>
                 <input v-model="searchs" @blur="change" class="inp-search" type="text"><span @click="quxiaoback">{{textview}}</span>
@@ -15,11 +18,13 @@
   export default {
     data: {
         textview: '取消',
-        searchs:''
+        searchs:'',
+        version: null
+
     },
 
     mounted(){
-
+        this.version = mpvue.getStorageSync('version') || null
     },
     methods: {
         change(){

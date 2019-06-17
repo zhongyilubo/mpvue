@@ -27,7 +27,9 @@
 
 
       </div>
-      </div>
+      <bottomnav></bottomnav>
+
+    </div>
 
     <div v-if="version==1">
       <button class="authlogin" open-type="getUserInfo" @getuserinfo="bindGetUserInfo" v-if="getusershow"> 获取头像昵称 </button>
@@ -123,6 +125,7 @@
             _this.news = res.data.new;
             _this.version = res.data.version;
             _this.join = res.data.join;
+            mpvue.setStorageSync('version', res.data.version)
         })
 
         wx.getSetting({

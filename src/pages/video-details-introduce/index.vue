@@ -1,6 +1,10 @@
 <template>
   <div>
-    <div class="myContainer">
+    <div v-if="!version" style="text-align: center;">
+      <img src="/static/images/tippp.png">
+    </div>
+
+    <div class="myContainer" v-if="version">
 
       <!-- 最新视频 -->
       <video id="myvideo" class="details" :src="video" @timeupdate="videorun" @play="startrun" controls></video>
@@ -72,7 +76,8 @@
   export default {
     data: {
       isshareshow : false,
-      id: 0,
+        version: null,
+        id: 0,
       name: '',
       type_name: '',
       type: '',
@@ -98,6 +103,7 @@
     },
     mounted(){
         var _this = this;
+        this.version = mpvue.getStorageSync('version') || null
 
         this.id = this.getQuery().id;//接收这个参数 jq mpvue接收的方式不一样
 
@@ -176,7 +182,7 @@
               }
               return wx.showModal({
                   title: '提示',
-                  content: !this.ispay ? (this.isios? this.iosword :'尚未购买确定购买吗'):'需分享后观看,点击右上角 ●●● 分享',
+                  content: !this.ispay ? (this.isios? this.iosword :'尚未购买确定购买吗'):'需分享后观看,点击右上角 ●●● 转发',
                   success(res) {
                       if (res.confirm && !_this.isios) {
                           _this.pay != 1 && wx.navigateTo({
@@ -208,7 +214,7 @@
               }
               wx.showModal({
                   title: '提示',
-                  content: !this.ispay ? (this.isios? this.iosword :'尚未购买确定购买吗'):'需分享后观看,点击右上角 ●●● 分享',
+                  content: !this.ispay ? (this.isios? this.iosword :'尚未购买确定购买吗'):'需分享后观看,点击右上角 ●●● 转发',
                   success(res) {
                       if (res.confirm && !_this.isios) {
                           _this.pay != 1 && wx.navigateTo({

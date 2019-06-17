@@ -58,7 +58,7 @@
             wx.showToast({
               title: res.info,
               icon: 'none',
-              duration: 2000
+              duration: 6000
             })
             _this.user = {
               name:'',

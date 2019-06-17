@@ -13,11 +13,11 @@
       </div>
     </div>
       <ul class="install-list">
-        <li v-if="!isios" @click="navigateTo('/pages/buy/main')">
+        <li v-if="!isios && version" @click="navigateTo('/pages/buy/main')">
           <img src="../../../static/images/mine-buy.png" alt="" mode="widthFix" style="width: 39rpx; height: 43rpx">
           我的购买
         </li>
-        <li v-if="isios" @click="navigateTo('/pages/buy/main')">
+        <li v-if="isios && version" @click="navigateTo('/pages/buy/main')">
           <img src="../../../static/images/mine-buy.png" alt="" mode="widthFix" style="width: 39rpx; height: 43rpx">
           我的收藏
         </li>
@@ -25,11 +25,11 @@
           <img src="../../../static/images/mine-bp.png" alt="" mode="widthFix" style="width: 39rpx; height: 43rpx">
           我的积分
         </li>
-        <li @click="navigateTo('/pages/shop/main')">
+        <li @click="navigateTo('/pages/shop/main')"  v-if="version">
           <img src="../../../static/images/mine-mall.png" alt="" mode="widthFix" style="width: 39rpx; height: 43rpx">
           我的商城
         </li>
-        <li @click="navigateTo('/pages/call/main')">
+        <li @click="navigateTo('/pages/call/main')" v-if="version">
           <img src="../../../static/images/mine-call.png" alt="" mode="widthFix" style="width: 39rpx; height: 43rpx">
           联系客服
         </li>
@@ -48,10 +48,12 @@
       message: 'Hello Vue!',
       userinfo : [],
       issign : 0,
-      isios: 1
-    },
+      isios: 1,
+          version: null
+  },
     mounted(){
         var _this = this;
+        this.version = mpvue.getStorageSync('version') || null
 
         _this.userinfo = mpvue.getStorageSync('userInfo') || [];
 
