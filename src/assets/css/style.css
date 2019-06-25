@@ -135,7 +135,6 @@ p{ font-size: 30rpx; color: #333;}
   width:85rpx;
   height: 85rpx;
   border-radius: 50%;
-  background: #d11208;
   margin-right:25rpx;
   float: left;
 }
@@ -227,6 +226,22 @@ p{ font-size: 30rpx; color: #333;}
 }
 
 .zt-box-img li span img{ height:226rpx;}
+
+.iiiiii{
+    width: 96% !important;
+    padding: 10rpx 2rpx;
+    display: block;
+    margin: 0 auto;
+}
+
+.opopopop{
+    font-size: 20rpx;
+    float: right;
+    margin: 10rpx;
+    border-radius: 5px;
+    padding: 20rpx;
+    color: red;
+}
 
 
 

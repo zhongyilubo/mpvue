@@ -7,7 +7,7 @@
     <div class="myContainer" v-if="version">
 
       <!-- 最新视频 -->
-      <video id="myvideo" class="details" :src="video" @timeupdate="videorun" @play="startrun" controls></video>
+      <video id="myvideo" class="details" :src="video" :poster="cover2" @timeupdate="videorun" @play="startrun" controls></video>
 
       <div class="mb-25">
           <h1 class="myTitle">{{name}}</h1>
@@ -38,29 +38,35 @@
 
       <h1 class="myTitle b-b">评论</h1>
       <ul class="video-comment">
-        <li v-if="false">
-          <div class="video-comment-img"></div>
+        <li  v-for="(item, index) in comments" :index="index" :key="key">
+          <div class="video-comment-img">
+            <img :src="item.header" style="width: 100%; height: 100%; border-radius: 50%;">
+          </div>
           <div class="video-comment-font">
             <div>
-              <span>毛豆花生</span>
-              <span class="red">回复</span>
-              <span>花生毛豆</span>
+              <span>{{item.name}}</span>
+              <span v-if="item.pname" class="red">回复</span>
+              <span v-if="item.pname">{{item.pname}}</span>
             </div>
-            <div class="zt-money gray">201912-31  23:29:59</div>
-            <p>视频不错，学到了很多东西，感谢老师，老师辛苦了。</p>
+            <div class="zt-money gray">{{item.time}}</div>
+            <p>{{item.content}}</p>
             <dl>
-                <dt><i class="fabulous fabulous-red"></i>94</dt>
-                <dd class="red">回复</dd>
+                <dt><i class="fabulous fabulous-red"></i>{{item.zan}}</dt>
+                <dd class="red" @click="tobackword(item.id)">回复</dd>
             </dl>
           </div>
         </li>
-        <li>
+        <li v-if="!comments.length">
           <div></div>
           <div class="video-comment-font">
             <div></div>
             <div class="zt-money gray"></div>
             <p>暂无评论</p>
           </div>
+        </li>
+        <li style="border-top: none;">
+          <textarea class="iiiiii" rows="3" :focus='isfocus' @input="iiiiio" @blur="bluraction" :value="concent" :placeholder="backword" style="border: 1px solid #ccc; border-radius: 10rpx;"></textarea>
+            <div class="opopopop" @click="totottoto">发表评论</div>
         </li>
       </ul>
 
@@ -76,6 +82,10 @@
   export default {
     data: {
       isshareshow : false,
+      comments : [],
+        backword:'请输入评论',
+        concent:"",
+        isfocus:false,
         version: null,
         id: 0,
       name: '',
@@ -92,6 +102,7 @@
       pay_view: '',
       sons: '',
       cover: '',
+      cover2: '',
       title:'中推在线',
       ispay:0,
       isshare:0,
@@ -112,6 +123,7 @@
             data: {}
         }).then(res => {
             _this.name = res.data.name;
+            _this.comments = res.data.comment;
             _this.type_name = res.data.type_name;
             _this.type = res.data.type;
             _this.teacher = res.data.teacher;
@@ -120,6 +132,7 @@
             _this.date = res.data.date;
             _this.timer = res.data.timer;
             _this.video = res.data.video;
+            _this.cover2 = res.data.cover + '?r='+Math.ceil(Math.random()*100000);
             _this.intro = res.data.intro;
             _this.pay = res.data.pay;
             _this.pay_name = res.data.pay_name;
@@ -151,6 +164,43 @@
 
     },
     methods: {
+        totottoto(){
+            var _this = this;
+
+            _this.$net.post({
+                url: 'comment',
+                data: {
+                    content:_this.concent,
+                    goodsid:_this.id,
+                    backid:_this.backid,
+                }
+            }).then(res => {
+                if(!res.status){
+                    return wx.showToast({
+                        title: res.info,
+                        icon: 'none',
+                        duration: 2000
+                    })
+                }
+                wx.redirectTo({
+                    url: '/pages/video-details-introduce/main?id='+_this.id
+                })
+            })
+        },
+        tobackword(index){
+            this.backid = index
+            this.backword = '请回复内容';
+            this.concent = '';
+            this.isfocus = true;
+        },
+        bluraction(){
+            this.isfocus = false;
+            if(!this.concent){this.backid = 0;}
+            this.backword = '请输入评论';
+        },
+        iiiiio(e){
+            this.concent = e.mp.detail.value
+        },
       topay(){
           if(this.pay != 1){
               this.startrun();
