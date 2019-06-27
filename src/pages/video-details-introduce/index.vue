@@ -51,7 +51,8 @@
             <div class="zt-money gray">{{item.time}}</div>
             <p>{{item.content}}</p>
             <dl>
-                <dt><i class="fabulous fabulous-red"></i>{{item.zan}}</dt>
+                <dt v-if="!item.selfzan" @click="zanzan(item.id,1)"><i class="fabulous"></i>{{item.zan}}</dt>
+                <dt v-if="item.selfzan" @click="zanzan(item.id,0)"><i class="fabulous fabulous-red"></i>{{item.zan}}</dt>
                 <dd class="red" @click="tobackword(item.id)">回复</dd>
             </dl>
           </div>
@@ -164,6 +165,29 @@
 
     },
     methods: {
+        zanzan(id,sign){
+            var _this = this;
+
+            _this.$net.post({
+                url: 'tozan',
+                data: {
+                    id:id,
+                    sign:sign,
+                }
+            }).then(res => {
+                if(!res.status){
+                    return wx.showToast({
+                        title: res.info,
+                        icon: 'none',
+                        duration: 2000
+                    })
+                }
+                wx.redirectTo({
+                    url: '/pages/video-details-introduce/main?id='+_this.id
+                })
+            })
+
+        },
         totottoto(){
             var _this = this;
 
