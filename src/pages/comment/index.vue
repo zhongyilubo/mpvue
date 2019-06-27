@@ -1,7 +1,6 @@
 <template>
   <div>
     <div class="myContainer" ><!--v-for="(item,index) in zhuanfa" :index="index" :key="key"-->
-      <h1 class="myTitle">{{zhuanfa.name}}&nbsp;&nbsp;&nbsp;<span class="red">{{zhuanfa.value}}分</span></h1>
       <h1 class="myTitle">{{fenxiang.name}}&nbsp;&nbsp;&nbsp;<span class="red">{{fenxiang.value}}分</span></h1>
       <h1 class="myTitle">{{pinglun.name}}&nbsp;&nbsp;&nbsp;<span class="red">{{fenxiang.value}}分</span></h1>
       <h1 class="myTitle">{{zhifu.name}}&nbsp;&nbsp;&nbsp;<span class="red">{{zhifu.value}}分</span></h1>

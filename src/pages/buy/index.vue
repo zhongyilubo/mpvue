@@ -17,7 +17,7 @@
             <span><img :src="item.cover" alt="" mode="widthFix" width="100%" ></span>
             <p>{{item.name}}</p>
             <dl class="zt-money">
-              <dt class="red" v-if="!isios">￥<span>{{item.price}}</span></dt>
+              <dt class="red" v-if="!isios"><span>{{item.pay_view}}</span></dt>
               <dd class="gray">{{item.teacher}}</dd>
             </dl>
           </li>
