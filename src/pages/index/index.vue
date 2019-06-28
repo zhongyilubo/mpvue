@@ -157,6 +157,25 @@
             }
         });
     },
+      onPullDownRefresh () {
+          var _this = this;
+
+          _this.$net.post({
+              url: 'index',
+              data: {}
+          }).then(res => {
+              _this.banner = res.data.banner.image;
+              _this.urlid = res.data.banner.urlid;
+              _this.hot = res.data.hot;
+              _this.news = res.data.new;
+              _this.version = res.data.version;
+              _this.join = res.data.join;
+              mpvue.setStorageSync('version', res.data.version)
+
+              wx.stopPullDownRefresh()
+              wx.hideNavigationBarLoading()
+          })
+      },
     methods: {
         bindGetUserInfo(e) {
             var _this = this;

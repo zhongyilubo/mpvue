@@ -1,4 +1,5 @@
 <template>
+  <div>
   <div class="myContainer">
     <ul class="integral mt-25">
       <li  v-for="(item,index) in messages_list" :index="index" :key="key">
@@ -21,14 +22,21 @@
     <div v-if="!messages_list.length">
       <p style="text-align: center; line-height: 220rpx;">暂无消息</p>
     </div>
+    </div>
+    <bottomnav></bottomnav>
   </div>
 </template>
 
 <script>
   import '@/assets/css/style.css';
+  import bottomnav from '@/components/nav.vue';
+
   export default {
     data: {
       messages_list:[]
+    },
+    components: {
+        bottomnav
     },
     mounted(){
       this.list();

@@ -38,11 +38,14 @@
           我的设置
         </li>
       </ul>
+    <bottomnav></bottomnav>
   </div>
 </template>
 
 <script>
   import '@/assets/css/install.css';
+  import bottomnav from '@/components/nav.vue';
+
   export default {
     data: {
       message: 'Hello Vue!',
@@ -50,7 +53,10 @@
       issign : 0,
       isios: 1,
           version: null
-  },
+    },
+    components: {
+        bottomnav
+    },
     mounted(){
         var _this = this;
         this.version = mpvue.getStorageSync('version') || null
@@ -81,6 +87,11 @@
                 url: 'sign'
             }).then(res => {
                 _this.issign = res.data.issign;
+                return wx.showToast({
+                    title: '签到成功',
+                    icon: 'none',
+                    duration: 2000
+                })
             })
         },
         rediectTo(url) {

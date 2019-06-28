@@ -5,13 +5,13 @@
             <li><a @click="rediectTo('/pages/index/main')">
                 <img src="../../static/images/nav-index.png" mode="widthFix" alt=""><br/>首页
             </a></li>
-            <li><a @click="navigateTo('/pages/classify/main')">
+            <li><a @click="rediectTo('/pages/classify/main')">
                 <img src="../../static/images/nav-classify.png" mode="widthFix" alt=""><br/>分类
             </a></li>
-            <li><a @click="navigateTo('/pages/message-list/main')">
+            <li><a @click="rediectTo('/pages/message-list/main')">
                 <img src="../../static/images/nav-news.png" mode="widthFix" alt=""><br/>消息
             </a></li>
-            <li><a @click="navigateTo('/pages/mine/main')">
+            <li><a @click="rediectTo('/pages/mine/main')">
                 <img src="../../static/images/nav-myself.png" mode="widthFix" alt=""><br/>我的
             </a></li>
         </ul>

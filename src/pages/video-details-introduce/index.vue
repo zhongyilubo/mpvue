@@ -22,10 +22,11 @@
       <p>
         {{intro}}
       </p>
+      <img  v-for="(item, index) in intro_images" :index="index" :key="key" :src="item" style="width: 98%; margin: 5rpx;" />
 
       <ul v-if="type == 2" class="zt-box two-line" style="margin-top: 20rpx" v-for="(item, index) in sons" :index="index" :key="key" @click="tosons(item)">
         <li>
-          <span><img :src="item.url" alt="" mode="widthFix"></span>
+          <span><img :src="item.image" alt="" mode="widthFix"></span>
         </li>
         <li style="height: 100%;">
           <p>{{item.name}}</p>
@@ -98,6 +99,7 @@
       date: '',
       timer: '',
       intro: '',
+      intro_images: '',
       pay: 2,
       pay_name: '',
       pay_view: '',
@@ -135,6 +137,7 @@
             _this.video = res.data.video;
             _this.cover2 = res.data.cover + '?r='+Math.ceil(Math.random()*100000);
             _this.intro = res.data.intro;
+            _this.intro_images = res.data.intro_images;
             _this.pay = res.data.pay;
             _this.pay_name = res.data.pay_name;
             _this.pay_view = res.data.pay_view;
