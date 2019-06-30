@@ -64,27 +64,40 @@
 
         </ul>
 
-        <!-- 最新视频 -->
-        <h1 class="myTitle">最新视频</h1>
-        <ul class="zt-box zt-box-img two-line" v-for="(item, index) in news" :index="index" :key="key" @click="togoods(item)"><!--  two-line -->
-          <li>
-            <span><img :src="item.cover" alt=""></span>
-          </li>
-          <li>
-            <p>{{item.name}}</p>
-            <dl class="zt-money gray">
-              <dd><span>{{item.date}}</span></dd>
-            </dl>
-            <dl class="zt-money gray">
-              <dt>{{item.teacher}}</dt>
-              <dd><span>{{item.number}}</span>次</dd>
-            </dl>
-            <dl class="zt-money red">
-              <dt><span v-if="!isios">{{item.pay_view}}</span></dt>
-              <dd>{{item.type_name}}</dd>
-            </dl>
-          </li>
-        </ul>
+        <!--这里放分类-->
+
+        <scroll-view class="buy-scroll" scroll-x="true" >
+          &nbsp;&nbsp;<li data-id="0" @click="getcategory">全部分类</li>
+          <li v-for="(item, index) in category" :index="index" :key="key" @click="getcategory" :data-id="item.id">{{item.name}}</li>
+        </scroll-view>
+
+        <div class="myContainer" style="padding-top: 20px;">
+
+          <ul class="zt-box zt-box-img two-line" v-for="(item, index) in buyvideo" :index="index" :key="key" @click="togoods(item)"><!--  two-line -->
+            <li>
+              <span><img :src="item.cover" alt=""></span>
+            </li>
+            <li>
+              <p>{{item.name}}</p>
+              <dl class="zt-money gray">
+                <dd><span>{{item.date}}</span></dd>
+              </dl>
+              <dl class="zt-money gray">
+                <dt>{{item.teacher}}</dt>
+                <dd><span>{{item.number}}</span>次</dd>
+              </dl>
+              <dl class="zt-money red">
+                <dt><span v-if="!isios">{{item.pay_view}}</span></dt>
+                <dd>{{item.type_name}}</dd>
+              </dl>
+            </li>
+          </ul>
+          <div v-if="!buyvideo.length">
+            <p style="text-align: center; line-height: 220rpx;">暂无内容</p>
+          </div>
+        </div>
+
+
       </div>
       <bottomnav></bottomnav>
 
@@ -107,7 +120,11 @@
       userInfo: {},
       isios: 1,
       join: null,
-      version: null
+      version: null,
+        category: [],
+        buyvideo:[],
+        cid:0,
+
     },
     components: {
         bottomnav
@@ -127,6 +144,9 @@
             _this.join = res.data.join;
             mpvue.setStorageSync('version', res.data.version)
         })
+
+        _this.buylist();
+        _this.buyli(this.cid);
 
         wx.getSetting({
             success: function(res){
@@ -177,6 +197,27 @@
           })
       },
     methods: {
+      buylist(){
+          var _this = this;
+          _this.$net.post({
+              url: 'category',
+              data: {}
+          }).then(res => {
+              _this.category = res.data;
+          })
+      },
+        buyli(cid = 0,key = ''){
+            var _this = this;
+            _this.$net.post({
+                url: 'goods',
+                data: {cid:cid,key:key}
+            }).then(res => {
+                _this.buyvideo = res.data;
+            })
+        },
+        getcategory(e){
+            this.buyli(e.currentTarget.dataset.id)
+        },
         bindGetUserInfo(e) {
             var _this = this;
 

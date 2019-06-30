@@ -6,7 +6,7 @@
                 <img src="../../static/images/nav-index.png" mode="widthFix" alt=""><br/>首页
             </a></li>
             <li><a @click="rediectTo('/pages/classify/main')">
-                <img src="../../static/images/nav-classify.png" mode="widthFix" alt=""><br/>分类
+                <img src="../../static/images/nav-classify.png" mode="widthFix" alt=""><br/>专栏
             </a></li>
             <li><a @click="rediectTo('/pages/message-list/main')">
                 <img src="../../static/images/nav-news.png" mode="widthFix" alt=""><br/>消息

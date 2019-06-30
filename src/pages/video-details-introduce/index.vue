@@ -22,7 +22,7 @@
       <p>
         {{intro}}
       </p>
-      <img  v-for="(item, index) in intro_images" :index="index" :key="key" :src="item" style="width: 98%; margin: 5rpx;" />
+      <img  v-for="(item, index) in intro_images" :index="index" :key="key" :src="item" style="width: 98%; margin: 0 5rpx;display:block;" />
 
       <ul v-if="type == 2" class="zt-box two-line" style="margin-top: 20rpx" v-for="(item, index) in sons" :index="index" :key="key" @click="tosons(item)">
         <li>
@@ -279,12 +279,12 @@
           })
       },
       videorun(event){
-          this.startrun();
+          this.startrun(event.mp.detail.currentTime);
       },
-      startrun(){
+      startrun(time = null){
           var _this = this;
           //判断分享或支付
-          if(!_this.ispay || (!_this.isshare && _this.pay == 1)){
+          if((!_this.ispay || (!_this.isshare && _this.pay == 1)) && (time && time > 120)){
               this.videoCtx.pause();
               if(this.ispay) {
                   _this.isshareshow = true;
@@ -318,8 +318,8 @@
         })
         var shareObj = {
             title: that.title,
-            path:'/pages/index/main',
-            imageUrl: that.cover,
+            path: '/pages/video-details-introduce/main?id='+that.id,
+            imageUrl: that.cover2,
             success(){
                 console.log(11232);
             },
