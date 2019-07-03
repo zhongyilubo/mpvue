@@ -67,10 +67,10 @@
         <!--这里放分类-->
 
         <scroll-view class="buy-scroll" scroll-x="true" >
-          &nbsp;&nbsp;<li data-id="0" @click="getcategory">全部分类</li>
-          <li v-for="(item, index) in category" :index="index" :key="key" @click="getcategory" :data-id="item.id">{{item.name}}</li>
+          &nbsp;&nbsp;<li data-id="0" @click="getcategory">全部分类<div class="line_red" v-if="liselect == 0"></div></li>
+          <li v-for="(item, index) in category" :index="index" :key="key" @click="getcategory" :data-id="item.id" :data-index="index">{{item.name}}<div v-if="liselect == (index + 1)" class="line_red"></div></li>
         </scroll-view>
-
+        <div class="line_grey"></div>
         <div class="myContainer" style="padding-top: 20px;">
 
           <ul class="zt-box zt-box-img two-line" v-for="(item, index) in buyvideo" :index="index" :key="key" @click="togoods(item)"><!--  two-line -->
@@ -124,7 +124,7 @@
         category: [],
         buyvideo:[],
         cid:0,
-
+      liselect:0,
     },
     components: {
         bottomnav
@@ -217,6 +217,11 @@
         },
         getcategory(e){
             this.buyli(e.currentTarget.dataset.id)
+            if(e.currentTarget.dataset.index >= 0){
+                this.liselect = e.currentTarget.dataset.index*1 + 1
+            }else{
+                this.liselect = 0;
+            }
         },
         bindGetUserInfo(e) {
             var _this = this;
