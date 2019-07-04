@@ -19,7 +19,7 @@
           </dl>
       </div>
       <h1 class="myTitle mb-25 b-b">简介</h1>
-      <p>
+      <p style="margin-bottom: 20rpx;">
         {{intro}}
       </p>
       <img  v-for="(item, index) in intro_images" :index="index" :key="key" :src="item" style="width: 98%; margin: 0 5rpx;display:block;" />
@@ -67,7 +67,7 @@
           </div>
         </li>
         <li style="border-top: none;">
-          <textarea class="iiiiii" rows="3" :focus='isfocus' @input="iiiiio" @blur="bluraction" :value="concent" :placeholder="backword" style="border: 1px solid #ccc; border-radius: 10rpx;"></textarea>
+          <textarea class="iiiiii" rows="3" :focus='isfocus' @input="iiiiio" @blur="bluraction" :value="concent" :placeholder="backword" style="z-index:0;border: 1px solid #ccc; border-radius: 10rpx;"></textarea>
             <div class="opopopop" @click="totottoto">发表评论</div>
         </li>
       </ul>
@@ -209,6 +209,7 @@
                         duration: 2000
                     })
                 }
+                _this.concent = '';
                 wx.redirectTo({
                     url: '/pages/video-details-introduce/main?id='+_this.id
                 })
