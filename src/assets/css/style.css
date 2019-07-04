@@ -86,7 +86,7 @@ p{ font-size: 30rpx; color: #333;}
   width: 100%;
   font-size: 24rpx;
   padding:20rpx 0;
-  background: #fff;
+  background: #f1f1f1;
   border-top: 1rpx solid #e6e6e6;
   overflow: hidden;
     height: 75rpx;
@@ -105,6 +105,7 @@ p{ font-size: 30rpx; color: #333;}
     /*border-bottom: 1px solid #ccc;*/
     white-space:nowrap;
     position: relative;
+    z-index: 777;
 }
 .buy-scroll li{
    display:inline-block;
@@ -119,8 +120,9 @@ p{ font-size: 30rpx; color: #333;}
     border-top: 1px solid #ccc;
     position: relative;
     top:-1px;
+    z-index: 1;
 }
-.buy-scroll li .line_red{
+.line_red{
     position: absolute;
     width: 100%;
     height: 0;

@@ -67,8 +67,8 @@
         <!--这里放分类-->
 
         <scroll-view class="buy-scroll" scroll-x="true" >
-          &nbsp;&nbsp;<li data-id="0" @click="getcategory">全部分类<div class="line_red" v-if="liselect == 0"></div></li>
-          <li v-for="(item, index) in category" :index="index" :key="key" @click="getcategory" :data-id="item.id" :data-index="index">{{item.name}}<div v-if="liselect == (index + 1)" class="line_red"></div></li>
+          &nbsp;&nbsp;<li data-id="0" @click="getcategory"><span v-if="liselect == 0" style="color:red;">全部分类</span><span v-if="liselect != 0">全部分类</span><div class="line_red" v-if="liselect == 0"></div></li>
+          <li v-for="(item, index) in category" :index="index" :key="key" @click="getcategory" :data-id="item.id" :data-index="index"><span v-if="liselect == (index + 1)" style="color:red;">{{item.name}}</span><span v-if="liselect != (index + 1)">{{item.name}}</span><div v-if="liselect == (index + 1)" class="line_red"></div></li>
         </scroll-view>
         <div class="line_grey"></div>
         <div class="myContainer" style="padding-top: 20px;">

@@ -2,7 +2,7 @@
   <div style="background: #eee; height: 100%; position: absolute; top: 0; bottom: 0; left: 0; right: 0;">
     <ul style="width: 96%; margin: 10rpx 10rpx auto; border-bottom: 1px solid #eee;">
       <!--<li class="red-back">器械类</li>-->
-      <li v-for="(item, index) in category" :index="index" :key="key" @click="togoods(item.id)"><img :src="item.image" style="width: 100%;"></li>
+      <li style="box-sizing: border-box; padding: 8rpx; overflow: hidden;" v-for="(item, index) in category" :index="index" :key="key" @click="togoods(item.id)"><img :src="item.image" style="width: 100%;"></li>
     </ul>
     <bottomnav :type="type"></bottomnav>
   </div>
