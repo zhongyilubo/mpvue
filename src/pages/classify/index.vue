@@ -4,7 +4,7 @@
       <!--<li class="red-back">器械类</li>-->
       <li v-for="(item, index) in category" :index="index" :key="key" @click="togoods(item.id)"><img :src="item.image" style="width: 100%;"></li>
     </ul>
-    <bottomnav></bottomnav>
+    <bottomnav :type="type"></bottomnav>
   </div>
 
 </template>
@@ -27,7 +27,8 @@
 
   export default {
       data: {
-        category: []
+        category: [],
+          type: 'zhuanlan',
       },
       components: {
           bottomnav

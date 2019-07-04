@@ -38,7 +38,7 @@
           我的设置
         </li>
       </ul>
-    <bottomnav></bottomnav>
+    <bottomnav :type="type"></bottomnav>
   </div>
 </template>
 
@@ -51,7 +51,8 @@
       message: 'Hello Vue!',
       userinfo : [],
       issign : 0,
-      isios: 1,
+        type: 'wode',
+        isios: 1,
           version: null
     },
     components: {

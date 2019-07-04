@@ -23,7 +23,7 @@
       <p style="text-align: center; line-height: 220rpx;">暂无消息</p>
     </div>
     </div>
-    <bottomnav></bottomnav>
+    <bottomnav :type="type"></bottomnav>
   </div>
 </template>
 
@@ -33,7 +33,8 @@
 
   export default {
     data: {
-      messages_list:[]
+      messages_list:[],
+        type: 'xiaoxi',
     },
     components: {
         bottomnav

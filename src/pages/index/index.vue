@@ -99,7 +99,7 @@
 
 
       </div>
-      <bottomnav></bottomnav>
+      <bottomnav :type="type"></bottomnav>
 
     </div>
   </div>
@@ -119,6 +119,7 @@
       getusershow:true,
       userInfo: {},
       isios: 1,
+        type: 'shouye',
       join: null,
       version: null,
         category: [],
