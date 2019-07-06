@@ -7,7 +7,7 @@
         <p>{{item.content}}</p>
         <dl class="zt-money gray">
           <dt class="kuan">{{item.created_at}}</dt>
-          <dd @click="tiaozhuanqu" :data-id="item.id" class="red">查看详情</dd>
+          <dd @click="tiaozhuanqu" :data-id="item.id" :data-tid="item.item_id" class="red">查看详情</dd>
         </dl>
       </li>
       <!--<li>
@@ -55,10 +55,17 @@
       tiaozhuanqu(e){
 
         var id = e.currentTarget.dataset.id;
+        var item_id = e.currentTarget.dataset.tid;
 
-        wx.navigateTo({
-          url: '/pages/message/main?id='+ id
-        })
+        if(item_id > 0){
+            wx.navigateTo({
+                url: '/pages/video-details-introduce/main?id='+item_id
+            });
+        }else{
+            wx.navigateTo({
+                url: '/pages/message/main?id='+ id
+            })
+        }
       }
 
     }
