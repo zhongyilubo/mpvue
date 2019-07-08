@@ -33,6 +33,28 @@
       <dd @click="topay">去支付</dd>
     </dl>
 
+    <view class='toast-box' v-if="ifName">
+      <view class='toastbg'></view>
+      <view class='showToast'>
+        <view class='toast-title'>
+          <text>请填写手机号码，方便提供后续服务</text>
+        </view>
+        <view class='toast-main'>
+          <view class='toast-input'>
+            <input placeholder='请输手机号' v-model="setValue" data-name='stuEidtName'>
+          </view>
+        </view>
+        <view class='toast-button'>
+          <view class='button1'>
+            <button @click='cancel'>取消</button>
+          </view>
+          <view class='button2'>
+            <button @click='confirm'>确定</button>
+          </view>
+        </view>
+      </view>
+    </view>
+
   </div>
 
 </template>
@@ -42,6 +64,9 @@
   export default {
     data: {
         id: 0,
+        ifName:false,
+        setValue:null,
+        isshareshow : false,
         name: '',
         type_name: '',
         type: '',
@@ -59,11 +84,18 @@
         title:'中推在线',
         ispay:0,
         isshare:0,
+        has_mobile: false
     },
     mounted(){
       var _this = this;
 
       this.id = this.getQuery().id;//接收这个参数 jq mpvue接收的方式不一样
+
+        _this.$net.post({
+            url: 'userinfo'
+        }).then(res => {
+            _this.has_mobile = res.data.user.mobile;
+        })
 
       _this.$net.post({
           url: 'detail/'+_this.id,
@@ -86,6 +118,31 @@
       })
     },
     methods: {
+        cancel(){
+            this.ifName = false;
+            this.setValue = null;
+            this.topay2();
+        },
+        confirm(){
+            var _this = this;
+
+            _this.$net.post({
+                url: 'userinfomobile',
+                data:{mobile:_this.setValue}
+            }).then(res => {
+                if(!res.status){
+                    return wx.showToast({
+                        title: res.info,
+                        icon: 'none',
+                        duration: 2000
+                    })
+                }
+                this.ifName = false;
+                this.setValue = null;
+                _this.has_mobile = true;
+                _this.topay2();
+            })
+        },
         getQuery() {
             /* 获取当前路由栈数组 */
             const pages = getCurrentPages()
@@ -95,7 +152,14 @@
         },
         topay(){
             var _this = this;
+            if(!_this.has_mobile){
+                return this.ifName = true;
+            }
 
+            _this.topay2();
+        },
+        topay2(){
+            var _this = this;
             _this.$net.post({
                 url: 'pay/'+_this.id,
                 data: {}
@@ -155,5 +219,93 @@
 <style>
   .mmmmm{
     min-height: 87rpx;
+  }
+</style>
+
+<style scoped>
+  .toast-box {
+    width: 100%;
+    height: 100%;
+    opacity: 1;
+    position: fixed;
+    top: 0px;
+    left: 0px;
+  }
+
+  .toastbg {
+    opacity: 0.2;
+    background-color: black;
+    position: absolute;
+    width: 100%;
+    min-height: 100vh;
+  }
+
+  .showToast {
+    position: absolute;
+    opacity: 1;
+    width: 70%;
+    margin-left: 15%;
+    margin-top: 40%;
+  }
+
+  .toast-title {
+    padding-left: 5%;
+    background-color: #2196f3;
+    font-size: 30rpx;
+    color: white;
+    padding-top: 2vh;
+    padding-bottom: 2vh;
+    border-top-right-radius: 16rpx;
+    border-top-left-radius: 16rpx;
+  }
+
+  .toast-main {
+    padding-top: 2vh;
+    padding-bottom: 2vh;
+    background-color: white;
+    text-align: center;
+  }
+
+  .toast-input {
+    margin-left: 5%;
+    margin-right: 5%;
+    border: 1px solid #ddd;
+    padding-left: 2vh;
+    padding-right: 2vh;
+    padding-top: 1vh;
+    padding-bottom: 1vh;
+  }
+
+  .toast-button {
+    display: flex;
+  }
+
+  .button1 {
+    width: 50%;
+  }
+
+  .button2 {
+    width: 50%;
+  }
+
+  .button1 button {
+    width: 100%;
+    background-color: white;
+    color: red;
+    border-radius: 0px;
+    border-bottom-left-radius: 16rpx;
+  }
+
+  .button2 button{
+    width: 100%;
+    background-color: white;
+    color: black;
+    border-radius: 0px;
+    border-bottom-right-radius: 16rpx;
+  }
+
+  .picker {
+    padding-top: 1vh;
+    padding-bottom: 1vh;
   }
 </style>

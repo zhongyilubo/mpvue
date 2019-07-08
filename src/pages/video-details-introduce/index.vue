@@ -241,6 +241,10 @@
                   duration: 2000
               })
           }
+
+          wx.navigateTo({
+              url: '/pages/order/main?id='+this.id
+          })
       },
       getQuery() {
           /* 获取当前路由栈数组 */
