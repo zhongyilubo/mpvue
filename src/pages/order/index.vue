@@ -181,7 +181,7 @@
                         paySign: res.paySign,
                         success: function(res) {
                             wx.showToast({
-                                title: '支付成功',
+                                title: '购买成功',
                                 icon: 'none',
                                 duration: 2000
                             })
@@ -189,7 +189,7 @@
                                 wx.navigateTo({
                                     url: '/pages/buy/main'
                                 })
-                            },1000);
+                            },2000);
                             console.log(res)
                         },
                         fail: function(res) {
@@ -200,7 +200,7 @@
                 }else{
 
                     wx.showToast({
-                        title: '支付成功',
+                        title: '购买成功',
                         icon: 'none',
                         duration: 2000
                     })
@@ -208,7 +208,7 @@
                         wx.navigateTo({
                             url: '/pages/buy/main'
                         })
-                    },1000);
+                    },2000);
                 }
 
             })
